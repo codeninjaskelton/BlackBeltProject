@@ -10,22 +10,30 @@ public class Block : MonoBehaviour
     public float rotateZ;
 
     [Header("Translate")]
-    [Header("X")]
-    public float TranslateXStart;
-    public float TranslateXEnd;
-    [Header("Y")]
-    public float TranslateYStart;
-    public float TranslateYEnd;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public bool canMove;
+    public float time;
+    public bool moveInSeconds;
+    public float translateSpeed;
+    public AnimationCurve curve;
+    public Vector2 translateStart;
+    public Vector2 translateEnd;
+    
     void Update()
     {
         gameObject.transform.Rotate(new Vector3(rotateX / 100, rotateY / 100, rotateZ / 100));
+        
+        if (moveInSeconds == true)
+        {
+            time += Time.deltaTime;
+        }
+        else if (moveInSeconds == false)
+        {
+            time += translateSpeed / 1000;
+        }
+
+        if (canMove == true)
+        {
+            transform.position = Vector2.Lerp(translateStart, translateEnd, curve.Evaluate(time));
+        }
     }
 }

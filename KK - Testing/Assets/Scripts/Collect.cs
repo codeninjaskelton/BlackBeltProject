@@ -6,32 +6,43 @@ public class Collect : MonoBehaviour
 {
     private GameObject portal;
     private Collectables collectables;
-    private int collectableNumber;
+    private bool lastCollectable = false;
 
     private void Start()
     {
-        portal = GameObject.Find("Portal");
-        Debug.Log(portal);
-        portal.SetActive(false);
         collectables = GameObject.Find("GameManager").GetComponent<Collectables>();
-        collectableNumber = collectables.collectables.Length;
-
+        collectables.collectableNumber = collectables.collectables.Length;
+        portal = collectables.GetPortal();
+        if (gameObject == collectables.collectables[collectables.collectables.Length - 1])
+        {
+            lastCollectable = true;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (collectableNumber == 0)
-            {
-                portal.SetActive(true);
-            }
-            else
+            if (portal.activeInHierarchy == false)
             {
                 gameObject.SetActive(false);
-                collectables.collectables[collectables.collectables.Length - collectableNumber].SetActive(true);
-                collectableNumber -= 1;
+                if (lastCollectable == false)
+                {
+                    collectables.collectables[collectables.collectables.Length - collectables.collectableNumber].SetActive(true);
+                    collectables.collectableNumber -= 1;
+                }
+            }
+
+            if (lastCollectable == true)
+            {
+                PortalOn();
             }
         }
+    }
+    
+    void PortalOn()
+    {
+        portal.SetActive(true);
+        collectables.collectables = new GameObject[0];
     }
 }
