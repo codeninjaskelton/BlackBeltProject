@@ -30,7 +30,7 @@ public class Block : MonoBehaviour
         {
             time += translateSpeed / 1000;
         }
-
+        
         if (canMove == true)
         {
             transform.position = Vector2.Lerp(translateStart, translateEnd, curve.Evaluate(time));
