@@ -33,7 +33,7 @@ public class Block : MonoBehaviour
         
         if (canMove == true)
         {
-            transform.position = Vector2.Lerp(translateStart, translateEnd, curve.Evaluate(time));
+            gameObject.GetComponent<Rigidbody>().MovePosition(Vector2.Lerp(translateStart, translateEnd, curve.Evaluate(time)));
         }
     }
 }
