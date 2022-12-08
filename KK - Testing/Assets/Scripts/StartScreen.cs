@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartScreen : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class StartScreen : MonoBehaviour
     {
         controls.SetActive(false);
         notControls.SetActive(true);
+        GameObject.Find("TimeText").GetComponent<Text>().text = PlayerPrefs.GetFloat("time").ToString();
     }
 
     public void ToggleControls()
@@ -40,6 +42,7 @@ public class StartScreen : MonoBehaviour
     
     public void StartButton()
     {
+        PlayerPrefs.DeleteKey("time");
         SceneManager.LoadScene("Testing1");
     }
 }

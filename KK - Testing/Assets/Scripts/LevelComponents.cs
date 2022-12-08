@@ -5,22 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class LevelComponents : MonoBehaviour
 {
-    public string sceneName;
+    public string[] levelComponents;
 
     private void Start()
     {
-        if (sceneName == "Testing6")
-        {
-            Physics.gravity = new Vector3(0, -1.62f);
-        }
-        if (sceneName == ":(")
-        {
-            Physics.gravity = new Vector3(0, -0.1f);
-        }
+        Physics.gravity = new Vector3(0, -9.81f);
+
+        
+        
     }
 
     private void Update()
     {
-        
+        for (var i = 0; i < levelComponents.Length; i++)
+        {
+            if (levelComponents[i] == "moongravity")
+            {
+                Physics.gravity = new Vector3(0, -1.62f);
+            }
+            if (levelComponents[i] == "sungravity")
+            {
+                Physics.gravity = new Vector3(0, -274);
+            }
+        }
     }
 }
