@@ -15,11 +15,10 @@ public class Spawn : MonoBehaviour
     public void Start()
     {
        
-        for (var i = spawnObjects.Length; i > 0; i--)
+        for (int i = spawnObjects.Length - 1; i >= 0; i--)
         {
 
             StartCoroutine(WaitSeconds(i));
-
         }
 
     }
@@ -33,9 +32,12 @@ public class Spawn : MonoBehaviour
         }
     }
 
-    IEnumerator WaitSeconds(int number)
+    public IEnumerator WaitSeconds(int number)
     {
-        yield return new WaitForSeconds(waitSeconds[number]);
-        //SpawnObject();
+        while (true){ 
+            yield return new WaitForSeconds(waitSeconds[number]);
+            SpawnObject(bject[number], position[number], rotation[number], hasLifeSpan[number], lifeSpan[number]);
+        }
     }
+
 }

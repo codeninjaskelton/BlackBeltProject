@@ -8,6 +8,7 @@ public class StartScreen : MonoBehaviour
 {
     public GameObject controls;
     public GameObject notControls;
+    public InputField LevelSelect;
 
     private void Start()
     {
@@ -43,6 +44,22 @@ public class StartScreen : MonoBehaviour
     public void StartButton()
     {
         PlayerPrefs.DeleteKey("time");
-        SceneManager.LoadScene("Testing1");
+        int ret = 0;
+        if (int.TryParse(LevelSelect.text, out ret))
+        {
+            if (ret <= 0 || ret > SceneManager.sceneCountInBuildSettings - 2)
+            {
+                SceneManager.LoadScene(2);
+            }
+            else
+            {
+                SceneManager.LoadScene(ret + 1);
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
+        
     }
 }
