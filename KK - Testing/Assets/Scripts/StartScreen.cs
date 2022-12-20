@@ -12,6 +12,7 @@ public class StartScreen : MonoBehaviour
 
     private void Start()
     {
+        CheckBlank();
         controls.SetActive(false);
         notControls.SetActive(true);
         GameObject.Find("TimeText").GetComponent<Text>().text = PlayerPrefs.GetFloat("time").ToString();
@@ -49,17 +50,27 @@ public class StartScreen : MonoBehaviour
         {
             if (ret <= 0 || ret > SceneManager.sceneCountInBuildSettings - 2)
             {
+                PlayerPrefs.SetInt("isTimed", 1);
                 SceneManager.LoadScene(2);
             }
             else
             {
+                PlayerPrefs.SetInt("isTimed", 0);
                 SceneManager.LoadScene(ret + 1);
             }
         }
         else
         {
+            PlayerPrefs.SetInt("isTimed", 1);
             SceneManager.LoadScene(2);
         }
-        
+    }
+
+    public void CheckBlank()
+    {
+        if (LevelSelect.text == "")
+        {
+            LevelSelect.text = "Level Number...";
+        }
     }
 }

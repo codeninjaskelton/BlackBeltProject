@@ -49,6 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cd0059dc08b1e4786bfc0705677a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelText: {fileID: 0}
+  levelNumber: 
+  levelType: Testing
 --- !u!114 &1787047673941036536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025814aa4b186a54e9e7d4683d47abdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnObjects: 
+  bject: []
+  position: []
+  rotation: []
+  hasLifeSpan: 
+  lifeSpan: []
+  waitSeconds: []
