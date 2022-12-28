@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8318928135880990256}
   - component: {fileID: 3425359295505516762}
   - component: {fileID: -2159334138729045861}
+  - component: {fileID: 3085589859815663866}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51,7 +52,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 0}
   levelNumber: 
-  levelType: Testing
 --- !u!114 &1787047673941036536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +125,17 @@ MonoBehaviour:
   hasLifeSpan: 
   lifeSpan: []
   waitSeconds: []
+--- !u!114 &3085589859815663866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787047673941036535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79bc828fa688f54d8053e2be3b08f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startZoom: 10
+  endZoom: 5
