@@ -11,6 +11,11 @@ public class Collectables : MonoBehaviour
     private void Start()
     {
         portal = GameObject.Find("Portal");
+        
+    }
+
+    public void Begin()
+    {
         portal.SetActive(false);
         for (var i = collectables.Length; i > 1; i--)
         {

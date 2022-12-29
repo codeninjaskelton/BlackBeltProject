@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     public float time;
     private GameObject timeText;
+    public bool canTime = false;
 
     private void Start()
     {
@@ -21,10 +22,14 @@ public class Timer : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("isTimed") == 1)
         {
-            time += Time.deltaTime;
-            PlayerPrefs.SetFloat("time", time);
             timeText.SetActive(true);
             timeText.GetComponent<Text>().text = time.ToString();
+            if (canTime)
+            {
+                time += Time.deltaTime;
+                PlayerPrefs.SetFloat("time", time);
+                timeText.GetComponent<Text>().text = time.ToString();
+            }
         }
         else
         {

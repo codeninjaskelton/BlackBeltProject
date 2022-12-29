@@ -60,7 +60,6 @@ public class UI : MonoBehaviour
                 {
                     level += levelNumber[i];
                 }
-                levelText.text = levelType;
                 int ret = 0;
                 if (int.TryParse(level, out ret))
                 {

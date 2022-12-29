@@ -1478,6 +1478,10 @@ PrefabInstance:
       propertyPath: collectables.Array.data[1]
       value: 
       objectReference: {fileID: 1983041227}
+    - target: {fileID: 3085589859815663866, guid: 15faf2e9bbf580642b0a408d5e85bef6, type: 3}
+      propertyPath: startZoom
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15faf2e9bbf580642b0a408d5e85bef6, type: 3}
 --- !u!1001 &908171230
