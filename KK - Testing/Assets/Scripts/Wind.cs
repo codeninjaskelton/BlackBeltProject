@@ -8,22 +8,32 @@ public class Wind : MonoBehaviour
     private GameObject top;
     private GameObject bottom;
     [SerializeField] private bool isColliding = false;
-    public float forceApplied = 1000;
+    public float forceApplied;
 
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        
+        top = gameObject.transform.GetChild(1).gameObject;
+        bottom = gameObject.transform.GetChild(2).gameObject;
+    }
+
+    private void Update()
+    {
+        Vector3 dif = top.transform.position - bottom.transform.position;
+        if (isColliding)
+        {
+            player.GetComponent<Rigidbody>().AddForce(dif * forceApplied);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        isColliding = true;
         if (other.gameObject.tag == "Player" )
         {
-            player.GetComponent<Rigidbody>().AddForce(transform.forward * forceApplied);
+            isColliding = true;
         }
+        
     }
 
     private void OnTriggerExit(Collider other)

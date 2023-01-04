@@ -45,8 +45,9 @@ public class UI : MonoBehaviour
         {
             levelType = "Testing";
         }
-
-        if (levelNumber.Length > levelType.Length)
+        if (levelType == "Testing" && levelNumber.Length != 7)
+        {
+            if (levelNumber.Length > levelType.Length)
         {
             string levelName = "";
             for (int i = 0; i < levelType.Length; i++)
@@ -71,5 +72,7 @@ public class UI : MonoBehaviour
                 levelText.text += level;
             }
         }
+        }
+        
     }
 }

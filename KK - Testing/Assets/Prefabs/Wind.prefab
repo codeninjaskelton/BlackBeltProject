@@ -4937,4 +4937,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
-  forceApplied: 50
+  forceApplied: 1
