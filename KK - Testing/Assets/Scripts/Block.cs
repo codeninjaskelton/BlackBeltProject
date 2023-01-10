@@ -17,7 +17,12 @@ public class Block : MonoBehaviour
     public AnimationCurve curve;
     public Vector2 translateStart;
     public Vector2 translateEnd;
-    
+
+    private void Start()
+    {
+        translateStart = transform.position;
+    }
+
     void Update()
     {
         gameObject.transform.Rotate(new Vector3(rotateX / 100, rotateY / 100, rotateZ / 100));

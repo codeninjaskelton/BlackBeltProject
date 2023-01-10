@@ -25,6 +25,8 @@ public class LevelComponents : MonoBehaviour
 
     private void Update()
     {
+        
+
         for (var i = 0; i < levelComponents.Length; i++)
         {
             if (levelComponents[i] == "moongravity")
