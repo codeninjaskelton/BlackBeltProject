@@ -177,6 +177,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
-    m_PostInfinity: 0
+    m_PostInfinity: 1
     m_RotationOrder: 4
   background: {fileID: 2100000, guid: f6b6eef44f93b964fae7f19e84b13d1a, type: 2}
+  EvaluatedTime: 0
+  speed: 1

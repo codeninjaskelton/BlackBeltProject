@@ -10,11 +10,11 @@ public class CinemachineZoom : MonoBehaviour
     public float endZoom;
     private float elasped = 0.0f;
     public float duration;
-    private GameObject bean;
-    private GameObject portal;
-    private GameObject[] collectables;
-    private Collectables collectablesScript;
-    private Timer timer;
+    public GameObject bean;
+    public GameObject portal;
+    public GameObject[] collectables;
+    public Collectables collectablesScript;
+    public Timer timer;
 
     private void Start()
     {
