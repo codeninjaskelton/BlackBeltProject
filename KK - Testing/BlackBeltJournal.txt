@@ -1,0 +1,4 @@
+2022.12.08
+I found out how to make a button in the window tab with this website: https://www.tangledrealitystudios.com/code-examples/quick-delete-playerprefs-with-editor-menu-button/
+2023.1.17
+Fixed some Pause script bugs

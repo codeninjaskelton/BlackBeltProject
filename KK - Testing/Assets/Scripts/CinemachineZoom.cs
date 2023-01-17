@@ -15,6 +15,9 @@ public class CinemachineZoom : MonoBehaviour
     public GameObject[] collectables;
     public Collectables collectablesScript;
     public Timer timer;
+    public Pause pause;
+    public GameObject boundary;
+    public float ogtimescale;
 
     private void Start()
     {
@@ -23,9 +26,12 @@ public class CinemachineZoom : MonoBehaviour
         collectables = GameObject.Find("GameManager").GetComponent<Collectables>().collectables;
         collectablesScript = GameObject.Find("GameManager").GetComponent<Collectables>();
         timer = GameObject.Find("GameManager").GetComponent<Timer>();
+        pause = GameObject.Find("GameManager").GetComponent<Pause>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         cm.m_Lens.OrthographicSize = startZoom;
         cm.m_Follow = null;
+        ogtimescale = Time.timeScale;
+        boundary = GameObject.Find("Boundary");
         bean.GetComponent<Rigidbody>().isKinematic = true;
         portal.SetActive(true);
         for (int i = 0; i < collectables.Length; i++)
@@ -39,9 +45,18 @@ public class CinemachineZoom : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         cm.m_Follow = player.transform;
-        bean.GetComponent<Rigidbody>().isKinematic = false;
-        portal.SetActive(false);
-        collectablesScript.Begin();
+        if (player)
+        {
+            bean.GetComponent<Rigidbody>().isKinematic = false;
+        }
+        if (exit)
+        {
+            portal.SetActive(false);
+        }
+        if (items.Length > 0)
+        {
+            collectablesScript.Begin();
+        }
         timer.canTime = true;
         while (cm.m_Lens.OrthographicSize > endZoom)
         {
@@ -49,5 +64,31 @@ public class CinemachineZoom : MonoBehaviour
             yield return new WaitForSeconds(0.0001f);
             cm.m_Lens.OrthographicSize = Mathf.Lerp(startZoom, endZoom, elasped);
         }
+    }
+    
+    public void Pause()
+    {
+        cm.m_Lens.OrthographicSize = startZoom;
+        cm.m_Follow = null;
+        cm.transform.position = new Vector3(0, 0, -10);
+        //bean.GetComponent<Rigidbody>().isKinematic = true;
+        Time.timeScale = 0;
+        
+    }
+
+    public IEnumerator PauseZoom(GameObject player, GameObject exit, GameObject[] items)
+    {
+        
+        cm.m_Follow = player.transform;
+        //bean.GetComponent<Rigidbody>().isKinematic = false;
+        Time.timeScale = ogtimescale;
+        timer.canTime = true;
+        while (cm.m_Lens.OrthographicSize > endZoom)
+        {
+            elasped += Time.deltaTime / duration;
+            yield return new WaitForSeconds(0.0001f);
+            cm.m_Lens.OrthographicSize = Mathf.Lerp(startZoom, endZoom, elasped);
+        }
+        
     }
 }

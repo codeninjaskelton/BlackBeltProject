@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -2159334138729045861}
   - component: {fileID: 3085589859815663866}
   - component: {fileID: 2441457973343908127}
+  - component: {fileID: -7633322396507723720}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -142,6 +143,11 @@ MonoBehaviour:
   startZoom: 10
   endZoom: 5
   duration: 1
+  bean: {fileID: 0}
+  portal: {fileID: 0}
+  collectables: []
+  collectablesScript: {fileID: 0}
+  timer: {fileID: 0}
 --- !u!114 &2441457973343908127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,3 +188,17 @@ MonoBehaviour:
   background: {fileID: 2100000, guid: f6b6eef44f93b964fae7f19e84b13d1a, type: 2}
   EvaluatedTime: 0
   speed: 1
+--- !u!114 &-7633322396507723720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787047673941036535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41017f7e8430f7c4fb87b533160bf1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPaused: 0
+  cinemachineZoom: {fileID: 0}

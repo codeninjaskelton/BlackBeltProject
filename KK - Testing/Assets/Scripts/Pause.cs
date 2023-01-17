@@ -22,15 +22,16 @@ public class Pause : MonoBehaviour
 
     void PauseGame()
     {
+        
         if (isPaused == false)
         {
-            cinemachineZoom.bean.GetComponent<Rigidbody>().isKinematic = false;
-            
-
+            cinemachineZoom.Pause();
+            isPaused = true;
         }
         else
         {
-            cinemachineZoom.bean.GetComponent<Rigidbody>().isKinematic = true;
+            StartCoroutine(cinemachineZoom.PauseZoom(cinemachineZoom.bean, null, null));
+            isPaused = false;
         }
         
     }

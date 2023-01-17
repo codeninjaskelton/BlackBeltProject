@@ -15,14 +15,18 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
+        if (Time.timeScale != 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.1f, 0, 0), ForceMode.Impulse);
+            if (Input.GetKey(KeyCode.D))
+            {
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.1f, 0, 0), ForceMode.Impulse);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-0.1f, 0, 0), ForceMode.Impulse);
+            }
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-0.1f, 0, 0), ForceMode.Impulse);
-        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
