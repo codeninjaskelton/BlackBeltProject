@@ -57,7 +57,10 @@ public class CinemachineZoom : MonoBehaviour
         {
             collectablesScript.Begin();
         }
-        timer.canTime = true;
+        if (PlayerPrefs.GetInt("isTimed") == 1)
+        {
+            timer.canTime = true;
+        }
         while (cm.m_Lens.OrthographicSize > endZoom)
         {
             elasped += Time.deltaTime / duration;
@@ -82,7 +85,10 @@ public class CinemachineZoom : MonoBehaviour
         cm.m_Follow = player.transform;
         //bean.GetComponent<Rigidbody>().isKinematic = false;
         Time.timeScale = ogtimescale;
-        timer.canTime = true;
+        if (PlayerPrefs.GetInt("isTimed") == 1)
+        {
+            timer.canTime = true;
+        }
         while (cm.m_Lens.OrthographicSize > endZoom)
         {
             elasped += Time.deltaTime / duration;

@@ -2008,7 +2008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119769817023473571, guid: 439b3a9e82d15864e8f8f68782a8b4fa, type: 3}
       propertyPath: m_CollisionDetection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5119769817023473572, guid: 439b3a9e82d15864e8f8f68782a8b4fa, type: 3}
       propertyPath: m_RootOrder
