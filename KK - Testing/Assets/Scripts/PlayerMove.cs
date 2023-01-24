@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Particles particles;
-    
+    public static bool pause = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
+            pause = false;
             if (Input.GetKey(KeyCode.D))
             {
                 gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.1f, 0, 0), ForceMode.Impulse);
@@ -25,6 +26,10 @@ public class PlayerMove : MonoBehaviour
             {
                 gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-0.1f, 0, 0), ForceMode.Impulse);
             }
+        }
+        else
+        {
+            pause = true;
         }
         
     }

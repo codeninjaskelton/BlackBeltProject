@@ -9,6 +9,7 @@ public class StartScreen : MonoBehaviour
     public GameObject controls;
     public GameObject notControls;
     public InputField LevelSelect;
+    public Colour colour;
 
     private void Start()
     {
@@ -16,6 +17,8 @@ public class StartScreen : MonoBehaviour
         controls.SetActive(false);
         notControls.SetActive(true);
         GameObject.Find("TimeText").GetComponent<Text>().text = PlayerPrefs.GetFloat("time").ToString();
+        
+        
     }
 
     public void ToggleControls()

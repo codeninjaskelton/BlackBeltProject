@@ -21,10 +21,14 @@ public class Wind : MonoBehaviour
     private void Update()
     {
         Vector3 dif = top.transform.position - bottom.transform.position;
-        if (isColliding)
+        if (PlayerMove.pause == false)
         {
-            player.GetComponent<Rigidbody>().AddForce(dif * forceApplied);
+            if (isColliding)
+            {
+                player.GetComponent<Rigidbody>().AddForce(dif * forceApplied);
+            }
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -25,20 +25,24 @@ public class Block : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.Rotate(new Vector3(rotateX / 100, rotateY / 100, rotateZ / 100));
         
-        if (moveInSeconds == true)
+        if (PlayerMove.pause == false)
         {
-            time += Time.deltaTime;
-        }
-        else if (moveInSeconds == false)
-        {
-            time += translateSpeed / 1000;
+            gameObject.transform.Rotate(new Vector3(rotateX / 100, rotateY / 100, rotateZ / 100));
+            if (moveInSeconds == true)
+            {
+                time += Time.deltaTime;
+            }
+            else if (moveInSeconds == false)
+            {
+                time += translateSpeed / 1000;
+            }
+        
+            if (canMove == true)
+            {
+                gameObject.GetComponent<Rigidbody>().MovePosition(Vector2.Lerp(translateStart, translateEnd, curve.Evaluate(time)));
+            }
         }
         
-        if (canMove == true)
-        {
-            gameObject.GetComponent<Rigidbody>().MovePosition(Vector2.Lerp(translateStart, translateEnd, curve.Evaluate(time)));
-        }
     }
 }

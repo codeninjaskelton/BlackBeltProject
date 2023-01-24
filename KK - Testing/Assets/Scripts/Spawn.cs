@@ -14,7 +14,6 @@ public class Spawn : MonoBehaviour
     
     public void Start()
     {
-       
         for (int i = spawnObjects.Length - 1; i >= 0; i--)
         {
 
@@ -32,6 +31,11 @@ public class Spawn : MonoBehaviour
         }
     }
 
+    public void SpawnPlayer(GameObject bject, Vector3 position, Quaternion rotation)
+    {
+        Instantiate(bject, position, rotation);
+    }
+
     public IEnumerator WaitSeconds(int number)
     {
         while (true){ 
@@ -40,4 +44,5 @@ public class Spawn : MonoBehaviour
         }
     }
 
+    
 }
