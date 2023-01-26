@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class StartScreen : MonoBehaviour
 {
     public GameObject controls;
-    public GameObject notControls;
+    public GameObject main;
+    public GameObject settings;
     public InputField LevelSelect;
     public Colour colour;
 
@@ -15,7 +16,8 @@ public class StartScreen : MonoBehaviour
     {
         CheckBlank();
         controls.SetActive(false);
-        notControls.SetActive(true);
+        main.SetActive(true);
+        settings.SetActive(false);
         GameObject.Find("TimeText").GetComponent<Text>().text = PlayerPrefs.GetFloat("time").ToString();
         
         
@@ -36,14 +38,39 @@ public class StartScreen : MonoBehaviour
         if (toggle == 1)
         {
             controls.SetActive(false);
-            notControls.SetActive(true);
+            main.SetActive(true);
+
         }
         if (toggle == 0)
         {
             controls.SetActive(true);
-            notControls.SetActive(false);
+            main.SetActive(false);
         }
-    }   
+    }
+
+    public void ToggleSettings()
+    {
+        int toggle;
+        if (settings.activeInHierarchy == true)
+        {
+            toggle = 1;
+        }
+        else
+        {
+            toggle = 0;
+        }
+
+        if (toggle == 1)
+        {
+            settings.SetActive(false);
+            main.SetActive(true);
+        }
+        if (toggle == 0)
+        {
+            settings.SetActive(true);
+            main.SetActive(false);
+        }
+    }
     
     public void StartButton()
     {

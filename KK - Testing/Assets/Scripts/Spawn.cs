@@ -39,8 +39,12 @@ public class Spawn : MonoBehaviour
     public IEnumerator WaitSeconds(int number)
     {
         while (true){ 
-            yield return new WaitForSeconds(waitSeconds[number]);
-            SpawnObject(bject[number], position[number], rotation[number], hasLifeSpan[number], lifeSpan[number]);
+            if (Time.timeScale != 0)
+            {
+                yield return new WaitForSeconds(waitSeconds[number]);
+                SpawnObject(bject[number], position[number], rotation[number], hasLifeSpan[number], lifeSpan[number]);
+            }
+            
         }
     }
 

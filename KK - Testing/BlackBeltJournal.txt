@@ -4,3 +4,7 @@ I found out how to make a button in the window tab with this website: https://ww
 Fixed some Pause script bugs
 2023.1.24
 Finshed some storyboarding. Fixed Pause script bugs.
+2023.1.26 - Dev Diary 1
+How long have you been in Code Ninjas?
+
+What are your three favourite things about being a ninja?

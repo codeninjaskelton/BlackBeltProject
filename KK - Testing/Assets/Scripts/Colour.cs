@@ -10,14 +10,17 @@ public class Colour : MonoBehaviour
     Color currentColour;
     public float EvaluatedTime;
     public float speed;
+    public Light directionalLight;
 
     private void Start()
     {
         background = GameObject.FindGameObjectWithTag("Backdrop").GetComponent<MeshRenderer>();
+        directionalLight = GameObject.Find("Directional Light").GetComponent<Light>();
     }
 
     private void Update()
     {
+        directionalLight.intensity = PlayerPrefs.GetFloat("Brightness");
         time += Time.deltaTime * speed;
         
         /*
