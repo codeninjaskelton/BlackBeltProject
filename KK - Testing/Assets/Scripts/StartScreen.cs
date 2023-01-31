@@ -25,33 +25,18 @@ public class StartScreen : MonoBehaviour
 
     public void ToggleControls()
     {
-        int toggle;
-        if (controls.activeInHierarchy == true)
-        {
-            toggle = 1;
-        }
-        else
-        {
-            toggle = 0;
-        }
-
-        if (toggle == 1)
-        {
-            controls.SetActive(false);
-            main.SetActive(true);
-
-        }
-        if (toggle == 0)
-        {
-            controls.SetActive(true);
-            main.SetActive(false);
-        }
+        Toggle(controls, main);
     }
 
     public void ToggleSettings()
     {
+        Toggle(settings, main);
+    }
+
+    public void Toggle(GameObject bject1, GameObject bject2)
+    {
         int toggle;
-        if (settings.activeInHierarchy == true)
+        if (bject1.activeInHierarchy == true)
         {
             toggle = 1;
         }
@@ -62,13 +47,13 @@ public class StartScreen : MonoBehaviour
 
         if (toggle == 1)
         {
-            settings.SetActive(false);
-            main.SetActive(true);
+            bject1.SetActive(false);
+            bject2.SetActive(true);
         }
         if (toggle == 0)
         {
-            settings.SetActive(true);
-            main.SetActive(false);
+            bject1.SetActive(true);
+            bject2.SetActive(false);
         }
     }
     

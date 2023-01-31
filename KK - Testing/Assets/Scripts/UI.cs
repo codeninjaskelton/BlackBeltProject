@@ -48,30 +48,31 @@ public class UI : MonoBehaviour
         if (levelType == "Testing" && levelNumber.Length != 7)
         {
             if (levelNumber.Length > levelType.Length)
-        {
-            string levelName = "";
-            for (int i = 0; i < levelType.Length; i++)
             {
-                    levelName += levelNumber[i];
-            }
-            if (levelName == levelType)
-            {
-                string level = "";
-                for (int i = levelType.Length; i < levelNumber.Length; i++)
+                string levelName = "";
+                levelText.text = levelName;
+                for (int i = 0; i < levelType.Length; i++)
                 {
-                    level += levelNumber[i];
+                        levelName += levelNumber[i];
                 }
-                int ret = 0;
-                if (int.TryParse(level, out ret))
+                if (levelName == levelType)
                 {
-                    if (ret < 10)
+                    string level = "";
+                    for (int i = levelType.Length; i < levelNumber.Length; i++)
                     {
-                        levelText.text += 0;
+                        level += levelNumber[i];
                     }
+                    int ret = 0;
+                    if (int.TryParse(level, out ret))
+                    {
+                        if (ret < 10)
+                        {
+                            levelText.text += 0;
+                        }
+                    }
+                    levelText.text += level;
                 }
-                levelText.text += level;
             }
-        }
         }
         
     }
