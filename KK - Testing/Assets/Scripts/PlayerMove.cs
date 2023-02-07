@@ -18,11 +18,11 @@ public class PlayerMove : MonoBehaviour
         if (Time.timeScale != 0)
         {
             pause = false;
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(ControlScript.Right))
             {
                 gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.1f, 0, 0), ForceMode.Impulse);
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(ControlScript.Left))
             {
                 gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-0.1f, 0, 0), ForceMode.Impulse);
             }
