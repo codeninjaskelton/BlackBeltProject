@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelComponents: []
+  player: {fileID: 0}
+  spawnScript: {fileID: 0}
+  moonGravity: 0
 --- !u!114 &3425359295505516762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +151,9 @@ MonoBehaviour:
   collectables: []
   collectablesScript: {fileID: 0}
   timer: {fileID: 0}
+  pause: {fileID: 0}
+  boundary: {fileID: 0}
+  ogtimescale: 0
 --- !u!114 &2441457973343908127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +194,7 @@ MonoBehaviour:
   background: {fileID: 2100000, guid: f6b6eef44f93b964fae7f19e84b13d1a, type: 2}
   EvaluatedTime: 0
   speed: 1
+  directionalLight: {fileID: 0}
 --- !u!114 &-7633322396507723720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +209,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   cinemachineZoom: {fileID: 0}
+  time: 1

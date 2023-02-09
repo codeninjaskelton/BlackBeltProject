@@ -6,6 +6,7 @@ public class Pause : MonoBehaviour
 {
     public bool isPaused = false;
     public CinemachineZoom cinemachineZoom;
+    public float time;
 
     private void Start()
     {
@@ -17,6 +18,10 @@ public class Pause : MonoBehaviour
         if (Input.GetKeyDown(ControlScript.Pause))
         {
             PauseGame();
+        }
+        if (!isPaused)
+        {
+            Time.timeScale = time;
         }
     }
 

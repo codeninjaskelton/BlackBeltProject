@@ -8,15 +8,24 @@ public class LevelComponents : MonoBehaviour
     public string[] levelComponents;
     public GameObject player;
     public Spawn spawnScript;
+    public bool moonGravity;
+    
 
     private void Start()
     {
         player = GameObject.Find("Bean");
         spawnScript = GameObject.Find("GameManager").GetComponent<Spawn>();
+        moonGravity = GameSettings.moon;
 
         Physics.gravity = new Vector3(0, -9.81f);
+        
+        if (moonGravity)
+            {
+                Physics.gravity = new Vector3(0, -1.62f);
+            }
         for (var i = 0; i < levelComponents.Length; i++)
         {
+            
             if (levelComponents[i] == "moongravity")
             {
                 Physics.gravity = new Vector3(0, -1.62f);
