@@ -137,6 +137,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5119769817023473572}
     m_Modifications:
+    - target: {fileID: 1145670331248823347, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145670331248823347, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145670331248823347, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4387371239952071987, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -246,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 1395776237528605251, guid: 56c5eb4702cf8da4e9d1ea6d866e8d23, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 97fe3c5ddf999df439adeacdc0e6df85, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7613359593515918942, guid: 56c5eb4702cf8da4e9d1ea6d866e8d23, type: 3}
       propertyPath: m_Name
       value: Bounce

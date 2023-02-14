@@ -9,17 +9,17 @@ public class ControlScript : MonoBehaviour
 
     [Header("Left")]
     public bool left = false;
-    public static KeyCode Left;
+    public static KeyCode Left = KeyCode.A;
     public GameObject leftJect;
     
     [Header("Right")]
     public bool right = false;
-    public static KeyCode Right;
+    public static KeyCode Right = KeyCode.D;
     public GameObject rightJect;
 
     [Header("Pause")]
     public bool pause = false;
-    public static KeyCode Pause;
+    public static KeyCode Pause = KeyCode.P;
     public GameObject pauseJect;
 
     // Start is called before the first frame update
