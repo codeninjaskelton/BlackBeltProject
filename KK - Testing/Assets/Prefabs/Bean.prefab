@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5119769817023473570}
   - component: {fileID: 5119769817023473571}
   - component: {fileID: 5119769817023473569}
+  - component: {fileID: -1539596266279425858}
   m_Layer: 0
   m_Name: Bean
   m_TagString: Player
@@ -130,6 +131,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbfe9b5d4fc8434aac2d35d2d7ac510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1539596266279425858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119769817023473624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbe024318cede748be7b75907cda17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4293088863181477640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,6 +150,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5119769817023473572}
     m_Modifications:
+    - target: {fileID: 1145670331248823347, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
+      propertyPath: m_Time
+      value: Infinity
+      objectReference: {fileID: 0}
     - target: {fileID: 1145670331248823347, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
       propertyPath: m_MinVertexDistance
       value: 0.1
@@ -195,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6493427681638598695, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
       propertyPath: m_Name
-      value: Bean
+      value: BeanTrail
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}

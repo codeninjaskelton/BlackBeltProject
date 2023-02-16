@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        particles = GameObject.Find("GameManager").GetComponent<Particles>();
+        particles = gameObject.GetComponent<Particles>();
     }
 
     // Update is called once per frame
