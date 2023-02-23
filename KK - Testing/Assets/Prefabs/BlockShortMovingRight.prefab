@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7029763598215422166}
   - component: {fileID: 610428348568825372}
   m_Layer: 0
-  m_Name: BlockShortMovingUp
+  m_Name: BlockShortMovingRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 610428348568825347}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 2, z: 1}
+  m_LocalScale: {x: 12, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   canMove: 1
   time: 0
   moveInSeconds: 0
-  translateSpeed: 0.1
+  translateSpeed: 0.15
   curve:
     serializedVersion: 2
     m_Curve:
@@ -158,5 +158,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  translateStart: {x: -80, y: -40}
-  translateEnd: {x: 0, y: 140}
+  translateStart: {x: 0, y: 0}
+  translateEnd: {x: 75, y: 0}

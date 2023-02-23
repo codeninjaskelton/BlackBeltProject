@@ -21,6 +21,7 @@ public class Block : MonoBehaviour
     private void Start()
     {
         translateStart = transform.position;
+        translateEnd = translateStart + translateEnd;
     }
 
     void Update()

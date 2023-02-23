@@ -20,6 +20,13 @@ public class Wind : MonoBehaviour
 
     private void Update()
     {
+        var sh = transform.GetChild(0).GetComponent<ParticleSystem>().shape;
+        //var em = transform.GetChild(0).GetComponent<ParticleSystem>().emission;
+        var ma = transform.GetChild(0).GetComponent<ParticleSystem>().main;
+        sh.scale = new Vector3(transform.localScale.x * 5, transform.localScale.y * 1, transform.localScale.z * 1);
+        //em.rateOverTime = transform.localScale.x * 10;
+        ma.startLifetime = transform.localScale.y * 2;
+
         Vector3 dif = top.transform.position - bottom.transform.position;
         if (PlayerMove.pause == false)
         {
