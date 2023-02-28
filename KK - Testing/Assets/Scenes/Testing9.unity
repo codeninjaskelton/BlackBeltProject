@@ -518,11 +518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
       propertyPath: translateEnd.x
-      value: 30.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
       propertyPath: translateEnd.y
-      value: 3
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
       propertyPath: translateSpeed
@@ -2008,11 +2008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
       propertyPath: translateEnd.x
-      value: 27.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
       propertyPath: translateEnd.y
-      value: 26
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
       propertyPath: translateSpeed

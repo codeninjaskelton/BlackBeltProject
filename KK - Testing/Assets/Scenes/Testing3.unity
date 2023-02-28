@@ -1010,7 +1010,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
       propertyPath: translateEnd.x
-      value: 11
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
+      propertyPath: translateEnd.y
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 610428348568825372, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
       propertyPath: translateStartX

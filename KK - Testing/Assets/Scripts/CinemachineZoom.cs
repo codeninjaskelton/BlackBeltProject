@@ -28,10 +28,10 @@ public class CinemachineZoom : MonoBehaviour
         timer = GameObject.Find("GameManager").GetComponent<Timer>();
         pause = GameObject.Find("GameManager").GetComponent<Pause>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
-        cm.m_Lens.OrthographicSize = startZoom;
-        cm.m_Follow = null;
-        ogtimescale = Time.timeScale;
         boundary = GameObject.Find("Boundary");
+        cm.m_Lens.OrthographicSize = startZoom;
+        cm.m_Follow = boundary.transform;
+        ogtimescale = Time.timeScale;
         bean.GetComponent<Rigidbody>().isKinematic = true;
         portal.SetActive(true);
         for (int i = 0; i < collectables.Length; i++)
