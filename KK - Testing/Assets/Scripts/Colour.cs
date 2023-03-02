@@ -11,6 +11,7 @@ public class Colour : MonoBehaviour
     public float EvaluatedTime;
     public float speed;
     public Light directionalLight;
+    public Light beanLight;
 
     private void Start()
     {
