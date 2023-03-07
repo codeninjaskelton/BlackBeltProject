@@ -21,15 +21,35 @@ public class RockNav : MonoBehaviour
 
     private void Update()
     {
+        float number = transform.GetChild(1).transform.localScale.x;
         time += translateSpeed / 1000;
+        while (number < 0)
+        {
+            number *= -1;
+        }
         if (touchingPlayer)
         {
-            rock.GetComponent<Rigidbody>().isKinematic = false;
-            rock.GetComponent<Rigidbody>().AddForce((player.transform.position - rock.transform.position).normalized * speed * 0.1f);
-            if (rock.GetComponent<Rigidbody>().velocity.magnitude > speed)
+
+            if (Vector3.Distance(rock.transform.position, transform.position) >= number / 2)
             {
-                rock.GetComponent<Rigidbody>().velocity = rock.GetComponent<Rigidbody>().velocity.normalized * speed;
+                
+                rock.GetComponent<Rigidbody>().isKinematic = true;
+                rock.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                
+                
+                
+                rock.GetComponent<Rigidbody>().MovePosition(Vector2.Lerp(rock.transform.position, transform.position + ((player.transform.position - rock.transform.position).normalized * number / 2) , curve.Evaluate(1) * 0.1f));
             }
+            else
+            {
+                rock.GetComponent<Rigidbody>().isKinematic = false;
+                rock.GetComponent<Rigidbody>().AddForce((player.transform.position - rock.transform.position).normalized * speed * 0.1f);
+                if (rock.GetComponent<Rigidbody>().velocity.magnitude > speed)
+                {
+                    rock.GetComponent<Rigidbody>().velocity = rock.GetComponent<Rigidbody>().velocity.normalized * speed;
+                }
+            }
+
         }
         else
         {
