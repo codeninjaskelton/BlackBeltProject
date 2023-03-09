@@ -38,7 +38,8 @@ public class RockNav : MonoBehaviour
                 
                 
                 
-                rock.GetComponent<Rigidbody>().MovePosition(Vector2.Lerp(rock.transform.position, transform.position + ((player.transform.position - rock.transform.position).normalized * number / 2) , curve.Evaluate(1) * 0.1f));
+                rock.GetComponent<Rigidbody>().MovePosition(Vector2.Lerp(rock.transform.position,
+                                                     transform.position + ((player.transform.position - transform.position).normalized * number / 2), curve.Evaluate(1) * 0.1f));
             }
             else
             {

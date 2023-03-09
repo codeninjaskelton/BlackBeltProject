@@ -22,4 +22,9 @@ public class Portal : MonoBehaviour
             SceneManager.LoadScene(nextScene);
         }
     }
+
+    public void SceneLoad(int sceneNumber)
+    {
+        SceneManager.LoadScene(sceneNumber);
+    }
 }
