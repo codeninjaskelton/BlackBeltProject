@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3425359295505516762}
   - component: {fileID: -2159334138729045861}
   - component: {fileID: 3085589859815663866}
+  - component: {fileID: -1475297639462387350}
   - component: {fileID: 2441457973343908127}
   - component: {fileID: -7633322396507723720}
   m_Layer: 0
@@ -141,6 +142,44 @@ MonoBehaviour:
   pause: {fileID: 0}
   boundary: {fileID: 0}
   ogtimescale: 0
+--- !u!114 &-1475297639462387350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787047673941036535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3ef1bc40edb2b42b52e90a46b7bde9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cm: {fileID: 0}
+  cmTransposer: {fileID: 0}
+  dampingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &2441457973343908127
 MonoBehaviour:
   m_ObjectHideFlags: 0
