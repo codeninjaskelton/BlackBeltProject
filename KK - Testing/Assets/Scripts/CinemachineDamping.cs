@@ -8,6 +8,12 @@ public class CinemachineDamping : MonoBehaviour
     public CinemachineVirtualCamera cm;
     public CinemachineTransposer cmTransposer;
     private GameObject bean;
+    public float minX;
+    public float minY;
+    public float maxX;
+    public float maxY;
+    public float constantX;
+    public float constantY;
 
     private void Start()
     {
@@ -23,7 +29,7 @@ public class CinemachineDamping : MonoBehaviour
 
 
 
-        cmTransposer.m_XDamping = Mathf.Min(1, 1 / xx);
-        cmTransposer.m_YDamping = Mathf.Min(1, 1 / xy);
+        cmTransposer.m_XDamping = Mathf.Max(maxX, Mathf.Min(minX, minX / xx ) + constantX);
+        cmTransposer.m_YDamping = Mathf.Max(maxY, Mathf.Min(minY, minY / xy) + constantY);
     }
 }
