@@ -10,7 +10,6 @@ public class Colour : MonoBehaviour
     Color currentColour;
     public float EvaluatedTime;
     public float speed;
-    public Light directionalLight;
 
     private void Start()
     {
