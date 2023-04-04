@@ -46,6 +46,7 @@ public class LevelEditorInstantiate : MonoBehaviour
                 child0.gameObject.SetActive(true);
                 break;
             case 1:
+                itemParent = Collectables;
                 child1.gameObject.SetActive(true);
                 break;
             
@@ -56,7 +57,7 @@ public class LevelEditorInstantiate : MonoBehaviour
             child0.gameObject.SetActive(false);
             child1.gameObject.SetActive(false);
         }
-        Debug.Log(boundaries);
+
         if (transform.position.y > boundaries.boundaries[0] && transform.position.y < boundaries.boundaries[1] && transform.position.x > boundaries.boundaries[2] && transform.position.x < boundaries.boundaries[3])
         {
             isInBoundaries = true;
@@ -103,6 +104,11 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            if (placed.Count > 0)
+            {
+                Destroy(placed[placed.Count - 1]);
+                placed.RemoveAt(placed.Count - 1);
+            }
             
         }
     }

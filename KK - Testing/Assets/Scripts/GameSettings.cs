@@ -24,11 +24,19 @@ public class GameSettings : MonoBehaviour
     public GameObject trailLengthText;
     public static float trailLength;
 
+    [Header("Background")]
+    public Toggle rainbowToggle;
+    public Slider rainbowSlider;
+    public Text rainbowSliderText;
+
     private void Start()
     {
         PlayerPrefs.SetFloat("Brightness", 1f);
         PlayerPrefs.SetFloat("TrailLength", float.PositiveInfinity);
         brightnessSlider.GetComponent<Slider>().value = 1 / 800f;
+        rainbowSlider.value = 0f;
+        PlayerPrefs.SetFloat("Rainbow", 0);
+        PlayerPrefs.SetFloat("RainbowColor", 0);
     }
 
     private void Update()
@@ -37,6 +45,8 @@ public class GameSettings : MonoBehaviour
         PlayerPrefs.SetFloat("Brightness", brightnessLevel);
         PlayerPrefs.SetFloat("TrailLength", trailLength);
         brightnessText.GetComponent<Text>().text = "Brightness " + brightnessLevel;
+        rainbowSliderText.text = "Background Color " + rainbowSlider.value;
+        PlayerPrefs.SetFloat("RainbowColor", rainbowSlider.value);
 
         if (On)
         {
@@ -47,6 +57,16 @@ public class GameSettings : MonoBehaviour
         {
             cheats.SetActive(false);
         }
+
+        if (rainbowToggle.isOn)
+        {
+            PlayerPrefs.SetFloat("Rainbow", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("Rainbow", 0);
+        }
+
     }
 
     public void Reset()
