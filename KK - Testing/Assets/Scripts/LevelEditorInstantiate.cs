@@ -26,6 +26,10 @@ public class LevelEditorInstantiate : MonoBehaviour
 
     public List<GameObject> placed = new List<GameObject>();
 
+    public int blockLimit;
+
+    public LevelEditorUI levelEditorUI;
+
     private void Start()
     {
         canPlace = false;
@@ -78,12 +82,17 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            
-            
             if (canPlace == true && isInBoundaries == true)
             {
-                placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
-                
+                if (placed.Count < blockLimit)
+                {
+                    placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                }
+                else
+                {
+                    levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
+                }
+                    
             }
             
             

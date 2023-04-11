@@ -11,6 +11,7 @@ public class StartScreen : MonoBehaviour
     public GameObject settings;
     public InputField LevelSelect;
     public Colour colour;
+    public Image bgColor;
 
     private void Start()
     {
@@ -21,6 +22,11 @@ public class StartScreen : MonoBehaviour
         GameObject.Find("TimeText").GetComponent<Text>().text = PlayerPrefs.GetFloat("time").ToString();
         
         
+    }
+
+    private void Update()
+    {
+        bgColor.color = Color.HSVToRGB(gameObject.GetComponent<GameSettings>().rainbowSlider.value / 100f, 1f, 1f, true);
     }
 
     public void ToggleControls()

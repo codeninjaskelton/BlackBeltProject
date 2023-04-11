@@ -73,6 +73,9 @@ public class GameSettings : MonoBehaviour
     {
         brightnessSlider.GetComponent<Slider>().value = 1 / 800f;
         trailLength = float.PositiveInfinity;
+        rainbowToggle.isOn = false;
+        rainbowSlider.value = 0;
+
     }
 
     public void ToggleCheats(GameObject toggleject)
