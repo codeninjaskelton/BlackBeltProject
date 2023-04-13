@@ -11,6 +11,8 @@ public class LevelEditorUI : MonoBehaviour
     public GameObject message;
     public GameObject messages;
 
+    public List<GameObject> sent = new List<GameObject>();
+
     private void Start()
     {
         levelEditorInstantiate = gameObject.GetComponent<LevelEditorInstantiate>();
@@ -28,26 +30,36 @@ public class LevelEditorUI : MonoBehaviour
     public IEnumerator NewMessage(string Message)
     {
         var newMessage = Instantiate(message, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0), messages.transform);
+        foreach (GameObject gobject in sent)
+        {
+            gobject.transform.position += new Vector3(0, 20f, 0);
+            
+
+        }
+        sent.Add(newMessage);
         var newMessageText = newMessage.GetComponent<Text>();
         newMessageText.text = Message;
         newMessage.GetComponent<RectTransform>().localPosition = Vector2.zero;
 
         while (newMessageText.color.a < 1)
         {
-            var newMessageTextAlpha = newMessageText.color.a;
-            newMessageTextAlpha += 0.1f;
+            var newMessageTextColor = newMessageText.color;
+            newMessageTextColor.a += 0.1f;
+            newMessageText.color = newMessageTextColor;
 
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
-        while (newMessageText.color.a > 1)
+        while (newMessageText.color.a > 0)
         {
-            var newMessageTextAlpha = newMessageText.color.a;
-            newMessageTextAlpha -= 0.01f;
+            var newMessageTextColor = newMessageText.color;
+            newMessageTextColor.a -= 0.01f;
+            newMessageText.color = newMessageTextColor;
 
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(0.02f);
         }
 
+        sent.RemoveAt(0);
         Destroy(newMessage);
     }
 }
