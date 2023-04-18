@@ -683,19 +683,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorItems:
-  - {fileID: 610428348568825347, guid: 783e2167baeb71e4fb76c66ad36acae1, type: 3}
-  - {fileID: 2104272596986203365, guid: b38cba1d88f64a54d906136261847ba8, type: 3}
+  - {fileID: 610428348568825347, guid: b2d0013f1f2150f42923b882ad52c50d, type: 3}
+  - {fileID: 2104272596986203365, guid: 710dc2a5a840f414f9295f197ebef680, type: 3}
   currentItem: 0
   itemParent: {fileID: 0}
   Blocks: {fileID: 2001989732}
   Collectables: {fileID: 350264821}
   transPos: {x: 0, y: 0}
-  transX: {fileID: 0}
-  transY: {fileID: 0}
+  transX: {fileID: 169412827}
+  transY: {fileID: 1467184355}
   itemRotation: 0
   rotationSpeed: 25
   canPlace: 0
-  followingMouse: 0
+  followingMouse: 1
   boundaries: {fileID: 3085589860163825095}
   isInBoundaries: 0
   placed: []
@@ -2705,6 +2705,7 @@ GameObject:
   - component: {fileID: 1787047673316051141}
   - component: {fileID: 598073218}
   - component: {fileID: 3085589860163825096}
+  - component: {fileID: 3085589860163825097}
   - component: {fileID: 3085589860163825095}
   m_Layer: 0
   m_Name: GameManager
@@ -2749,6 +2750,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockLimitText: {fileID: 1804825037}
   levelEditorInstantiate: {fileID: 598073218}
+  levelEditorManager: {fileID: 3085589860163825097}
   message: {fileID: 4834690957043568885, guid: c25664f2634a9264e8d9059ecf31f10c, type: 3}
   messages: {fileID: 78935570}
+  transX: {fileID: 169412827}
+  transY: {fileID: 1467184355}
   sent: []
+--- !u!114 &3085589860163825097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787047673316051147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7281eb2daf752ff4e9130c7e4bbe21f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelEditorInstantiate: {fileID: 598073218}
+  hobject: {fileID: 0}
+  layermaskname:
+    serializedVersion: 2
+    m_Bits: 128

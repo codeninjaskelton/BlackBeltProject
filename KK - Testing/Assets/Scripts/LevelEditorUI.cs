@@ -7,20 +7,31 @@ public class LevelEditorUI : MonoBehaviour
 {
     public Text blockLimitText;
     public LevelEditorInstantiate levelEditorInstantiate;
+    public LevelEditorManager levelEditorManager;
 
     public GameObject message;
     public GameObject messages;
+
+    public InputField transX;
+    public InputField transY;
 
     public List<GameObject> sent = new List<GameObject>();
 
     private void Start()
     {
         levelEditorInstantiate = gameObject.GetComponent<LevelEditorInstantiate>();
+        levelEditorManager = gameObject.GetComponent<LevelEditorManager>();
     }
 
     private void Update()
     {
         blockLimitText.text = levelEditorInstantiate.placed.Count + "/" + levelEditorInstantiate.blockLimit;
+        if (levelEditorManager.hobject != null)
+        {
+            transX.text = (levelEditorManager.hobject.transform.position.x * 10).ToString();
+            transY.text = (levelEditorManager.hobject.transform.position.y * 10).ToString();
+        }
+        
     }
 
     public void CallNewMessage(string Message)

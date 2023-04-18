@@ -47,11 +47,11 @@ public class LevelEditorInstantiate : MonoBehaviour
         var child0 = transform.GetChild(0);
         var child1 = transform.GetChild(1);
 
-        if (float.TryParse(transX.ToString(), out float retX))
+        if (float.TryParse(transX.text.ToString(), out float retX))
         {
             transPos.x = retX;
         }
-        if (float.TryParse(transY.ToString(), out float retY))
+        if (float.TryParse(transY.text.ToString(), out float retY))
         {
             transPos.y = retY;
         }
@@ -80,7 +80,7 @@ public class LevelEditorInstantiate : MonoBehaviour
             child1.gameObject.SetActive(false);
         }
 
-        if (transform.position.y > boundaries.boundaries[0] && transform.position.y < boundaries.boundaries[1] && transform.position.x > boundaries.boundaries[2] && transform.position.x < boundaries.boundaries[3])
+        if (transform.position.y > (boundaries.boundaries[0]) && transform.position.y < (boundaries.boundaries[1]) && transform.position.x > (boundaries.boundaries[2]) && transform.position.x < (boundaries.boundaries[3]))
         {
             isInBoundaries = true;
         }
@@ -98,6 +98,7 @@ public class LevelEditorInstantiate : MonoBehaviour
             itemRotation += 1 * rotationSpeed/100;
         }
 
+
         if (Input.GetMouseButtonDown(0))
         {
             if (canPlace == true)
@@ -110,20 +111,24 @@ public class LevelEditorInstantiate : MonoBehaviour
                         {
                             placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
                         }
+                        else
+                        {
+                            levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
+                        }
                     }
                 }
                 else if (placed.Count < blockLimit)
                 {
-                    placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                    placed.Add(Instantiate(editorItems[currentItem], new Vector3(transPos.x, transPos.y, 0)/10, Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
                     
                 }
-                
-                
                 else
                 {
                     levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
                 }
-                    
+
+
+
             }
             
             
@@ -136,7 +141,7 @@ public class LevelEditorInstantiate : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(transPos.x, transPos.y, 0);
+            transform.position = new Vector3(transPos.x, transPos.y, 0)/10;
         }
 
         
@@ -160,6 +165,17 @@ public class LevelEditorInstantiate : MonoBehaviour
                 placed.RemoveAt(placed.Count - 1);
             }
             
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (followingMouse)
+            {
+                followingMouse = false;
+            }
+            else
+            {
+                followingMouse = true;
+            }
         }
     }
 
