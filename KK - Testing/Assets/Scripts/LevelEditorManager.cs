@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class LevelEditorManager : MonoBehaviour
 {
     public LevelEditorInstantiate levelEditorInstantiate;
+    public LevelEditorColorManager levelEditorColorManager;
+
     public GameObject hobject;
     public LayerMask layermaskname;
 
@@ -28,16 +30,16 @@ public class LevelEditorManager : MonoBehaviour
             if (Physics.Raycast(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, -10), Vector3.forward, out hit, Mathf.Infinity, layermaskname))
             {
                 hobject = hit.transform.gameObject;
-                mouseStart = new Vector3(Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(hobject.transform.position.x, hobject.transform.position.y)), 0);
+                StartCoroutine(levelEditorColorManager.Switch2Rock2(hobject));
+                mouseStart = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - hobject.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - hobject.transform.position.y, 0);
                 StartCoroutine(MouseHold());
-                StopAllCoroutines();
             }
             
         }
         //if (hobject && Input.GetKey(KeyCode.Mouse0))
-        {
+        //{
             //hobject.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0) + mouseStart;
-        }
+        //}
         
         if (levelEditorInstantiate.canPlace)
         {
@@ -47,12 +49,12 @@ public class LevelEditorManager : MonoBehaviour
 
     public IEnumerator MouseHold()
     {
-        Debug.Log("once");
         yield return new WaitForSeconds(0.1f);
         
         while (Input.GetKey(KeyCode.Mouse0))
         {
-            hobject.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0) + mouseStart;
+            hobject.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0) - mouseStart;
+            yield return null;
         }
     }
 }
