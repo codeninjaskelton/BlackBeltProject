@@ -16,6 +16,8 @@ public class LevelEditorManager : MonoBehaviour
 
     public Vector3 mouseStart;
 
+    public int it;
+    
     private void Start()
     {
         
@@ -26,11 +28,12 @@ public class LevelEditorManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && !levelEditorInstantiate.canPlace)
         {
             hobject = null;
+            it++;
             RaycastHit hit;
             if (Physics.Raycast(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, -10), Vector3.forward, out hit, Mathf.Infinity, layermaskname))
             {
                 hobject = hit.transform.gameObject;
-                StartCoroutine(levelEditorColorManager.Switch2Rock2(hobject));
+                StartCoroutine(levelEditorColorManager.Switch2Rock2(hobject, it));
                 mouseStart = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - hobject.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - hobject.transform.position.y, 0);
                 StartCoroutine(MouseHold());
             }

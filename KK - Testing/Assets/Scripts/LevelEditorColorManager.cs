@@ -10,19 +10,16 @@ public class LevelEditorColorManager : MonoBehaviour
     public Material hobjectMaterial;
     //old
     
-    public IEnumerator Switch2Rock2(GameObject hobject)
+    public IEnumerator Switch2Rock2(GameObject hobject, int it)
     {
         Material hobMaterial = hobject.GetComponent<MeshRenderer>().material;
-        Material ogRock = rock2;
         hobjectMaterial = hobMaterial;
-        hobMaterial = rock2;
-        hobMaterial.color = hobjectMaterial.color;
-        hobject.GetComponent<MeshRenderer>().material = hobMaterial;
-        while (levelEditorManager.hobject == hobject)
+        
+        hobject.GetComponent<MeshRenderer>().material = rock2;
+        while (levelEditorManager.it == it)
         {
             yield return new WaitForEndOfFrame();
         }
         hobject.GetComponent<MeshRenderer>().material = hobjectMaterial;
-        rock2.color = ogRock.color;
     }
 }

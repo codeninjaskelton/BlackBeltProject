@@ -2778,6 +2778,7 @@ MonoBehaviour:
   transX: {fileID: 0}
   transY: {fileID: 0}
   mouseStart: {x: 0, y: 0, z: 0}
+  it: 0
 --- !u!114 &3085589860163825098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2791,5 +2792,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEditorManager: {fileID: 3085589860163825097}
-  rock2: {fileID: 2100000, guid: 4efb4c62d9586334799a3c4141fae3cf, type: 2}
+  rock2: {fileID: 2100000, guid: 7344c0dca600c9d419b1a3f95488248e, type: 2}
   hobjectMaterial: {fileID: 0}
