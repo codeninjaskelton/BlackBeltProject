@@ -25,29 +25,34 @@ public class LevelEditorManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !levelEditorInstantiate.canPlace)
+        if (!levelEditorInstantiate.canPlace)
         {
-            hobject = null;
-            it++;
-            RaycastHit hit;
-            if (Physics.Raycast(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, -10), Vector3.forward, out hit, Mathf.Infinity, layermaskname))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                hobject = hit.transform.gameObject;
-                StartCoroutine(levelEditorColorManager.Switch2Rock2(hobject, it));
-                mouseStart = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - hobject.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - hobject.transform.position.y, 0);
-                StartCoroutine(MouseHold());
-            }
-            
-        }
-        //if (hobject && Input.GetKey(KeyCode.Mouse0))
-        //{
-            //hobject.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0) + mouseStart;
-        //}
-        
-        if (levelEditorInstantiate.canPlace)
-        {
+                hobject = null;
+                it++;
+                RaycastHit hit;
+                if (Physics.Raycast(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, -10), Vector3.forward, out hit, Mathf.Infinity, layermaskname))
+                {
+                    hobject = hit.transform.gameObject;
+                    StartCoroutine(levelEditorColorManager.Switch2Rock2(hobject, it));
+                    mouseStart = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - hobject.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - hobject.transform.position.y, 0);
+                    StartCoroutine(MouseHold());
+                }
 
+            }
+
+            if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete))
+            {
+                List<GameObject> placed = levelEditorInstantiate.placed;
+                if (placed.Count > 0)
+                {
+                    Destroy(placed[placed.Count - 1]);
+                    placed.RemoveAt(placed.Count - 1);
+                }
+            }
         }
+        
     }
 
     public IEnumerator MouseHold()

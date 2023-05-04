@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,7 +61,7 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         switch (currentItem)
         {
-            
+
             case 0:
                 itemParent = Blocks;
                 child0.gameObject.SetActive(true);
@@ -71,7 +70,7 @@ public class LevelEditorInstantiate : MonoBehaviour
                 itemParent = Collectables;
                 child1.gameObject.SetActive(true);
                 break;
-            
+
         }
 
         if (canPlace == false || isInBoundaries == false)
@@ -91,11 +90,11 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Q))
         {
-            itemRotation -= 1 * rotationSpeed/100;
+            itemRotation -= 1 * rotationSpeed / 100;
         }
         if (Input.GetKey(KeyCode.E))
         {
-            itemRotation += 1 * rotationSpeed/100;
+            itemRotation += 1 * rotationSpeed / 100;
         }
 
 
@@ -117,41 +116,55 @@ public class LevelEditorInstantiate : MonoBehaviour
                         }
                     }
                 }
-                else if (placed.Count < blockLimit)
-                {
-                    placed.Add(Instantiate(editorItems[currentItem], new Vector3(transPos.x, transPos.y, 0)/10, Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
-                    
-                }
-                else
-                {
-                    levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
-                }
+
 
 
 
             }
-            
-            
+
+
 
         }
-        
+        else if (canPlace)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                transX.DeactivateInputField();
+                transY.DeactivateInputField();
+
+                if (placed.Count < blockLimit)
+                {
+
+                    placed.Add(Instantiate(editorItems[currentItem], new Vector3(transPos.x, transPos.y, 0) / 10, Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+
+                }
+                else
+                {
+                    levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
+
+                }
+            }
+        }
+
+
+
         if (followingMouse)
         {
             transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
         }
         else
         {
-            transform.position = new Vector3(transPos.x, transPos.y, 0)/10;
+            transform.position = new Vector3(transPos.x, transPos.y, 0) / 10;
         }
 
-        
+
         transform.rotation = Quaternion.Euler(0, 0, itemRotation);
 
         if (Input.GetKeyDown(KeyCode.V))
         {
             canPlace = true;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             canPlace = false;
@@ -164,7 +177,7 @@ public class LevelEditorInstantiate : MonoBehaviour
                 Destroy(placed[placed.Count - 1]);
                 placed.RemoveAt(placed.Count - 1);
             }
-            
+
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -176,6 +189,24 @@ public class LevelEditorInstantiate : MonoBehaviour
             {
                 followingMouse = true;
             }
+        }
+
+        for (int i = 0; i < transX.text.ToString().Length; i++)
+        {
+            int length = transX.text.Length;
+            List<string> x;
+            List<string> y;
+            
+            for (int it = 0; it < transX.text.Length; it++)
+            {
+
+                x.Add(transX.text[it].ToString());
+                if (float.TryParse(transX.text.ToString().Split(char.Parse(x[it]), out float ret))
+                {
+
+                }
+            }
+            
         }
     }
 
