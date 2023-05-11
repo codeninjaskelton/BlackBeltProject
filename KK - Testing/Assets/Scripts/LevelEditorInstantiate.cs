@@ -79,7 +79,7 @@ public class LevelEditorInstantiate : MonoBehaviour
             child1.gameObject.SetActive(false);
         }
 
-        if (transform.position.y > (boundaries.boundaries[0]) && transform.position.y < (boundaries.boundaries[1]) && transform.position.x > (boundaries.boundaries[2]) && transform.position.x < (boundaries.boundaries[3]))
+        if (transform.position.y > (boundaries.boundaries[0] + 2) && transform.position.y < (boundaries.boundaries[1]) && transform.position.x > (boundaries.boundaries[2]) && transform.position.x < (boundaries.boundaries[3]))
         {
             isInBoundaries = true;
         }
@@ -100,11 +100,13 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (canPlace == true)
+            Debug.Log(transform.position.y);
+            Debug.Log(boundaries.boundaries[0]);
+            if (canPlace)
             {
                 if (followingMouse)
                 {
-                    if (isInBoundaries == true)
+                    if (isInBoundaries)
                     {
                         if (placed.Count < blockLimit)
                         {
@@ -191,23 +193,17 @@ public class LevelEditorInstantiate : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < transX.text.ToString().Length; i++)
-        {
-            int length = transX.text.Length;
-            List<string> x;
-            List<string> y;
-            
-            for (int it = 0; it < transX.text.Length; it++)
-            {
-
-                x.Add(transX.text[it].ToString());
-                if (float.TryParse(transX.text.ToString().Split(char.Parse(x[it]), out float ret))
-                {
-
-                }
-            }
-            
-        }
+        //string x = transX.text.ToString();
+        //Debug.Log("update");
+        //for (int i = 0; i < x.Length; i++)
+        //{
+        //    if (!int.TryParse(x.Substring(i, 1), out int ret))
+        //    {
+        //        x.Remove(i, 1);
+        //        Debug.Log("running");
+        //        transX.text = x;
+        //    }
+        //}
     }
 
     public void ChangeItem(int number)

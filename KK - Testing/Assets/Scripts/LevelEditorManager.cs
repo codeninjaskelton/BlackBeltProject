@@ -45,10 +45,10 @@ public class LevelEditorManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete))
             {
                 List<GameObject> placed = levelEditorInstantiate.placed;
-                if (placed.Count > 0)
+                if (placed.Contains(hobject))
                 {
-                    Destroy(placed[placed.Count - 1]);
-                    placed.RemoveAt(placed.Count - 1);
+                    placed.Remove(hobject);
+                    Destroy(hobject);
                 }
             }
         }

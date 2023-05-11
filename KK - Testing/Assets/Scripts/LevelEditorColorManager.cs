@@ -16,10 +16,15 @@ public class LevelEditorColorManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         Material hobMaterial = hobject.GetComponent<MeshRenderer>().material;
         hobjectMaterial = hobMaterial;
-        
+        Color color = hobMaterial.color;
         hobject.GetComponent<MeshRenderer>().material = rock2;
+        hobject.GetComponent<MeshRenderer>().material.color = color;
         while (levelEditorManager.it == it )
         {
+            if (hobject == null)
+            {
+                yield break;
+            }
             if (levelEditorInstantiate.canPlace)
             {
                 hobject.GetComponent<MeshRenderer>().material = hobjectMaterial;

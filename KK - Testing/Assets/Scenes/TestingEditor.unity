@@ -408,13 +408,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 169412828}
   m_TextComponent: {fileID: 2051381984}
   m_Placeholder: {fileID: 1333033123}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorItems:
-  - {fileID: 610428348568825347, guid: b2d0013f1f2150f42923b882ad52c50d, type: 3}
+  - {fileID: 6733576371256187701, guid: c05bd50cc1712ea448d64e13a54ecb38, type: 3}
   - {fileID: 2104272596986203365, guid: 710dc2a5a840f414f9295f197ebef680, type: 3}
   currentItem: 0
   itemParent: {fileID: 0}
@@ -1820,13 +1820,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1467184356}
   m_TextComponent: {fileID: 1428381796}
   m_Placeholder: {fileID: 93726554}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
@@ -2793,5 +2793,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelEditorManager: {fileID: 3085589860163825097}
   levelEditorInstantiate: {fileID: 598073218}
-  rock2: {fileID: 2100000, guid: 7344c0dca600c9d419b1a3f95488248e, type: 2}
+  rock2: {fileID: 2100000, guid: 4efb4c62d9586334799a3c4141fae3cf, type: 2}
   hobjectMaterial: {fileID: 0}
