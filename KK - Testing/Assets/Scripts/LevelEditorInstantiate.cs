@@ -29,6 +29,7 @@ public class LevelEditorInstantiate : MonoBehaviour
     [Header("Boundaries")]
     public Boundaries boundaries;
     public bool isInBoundaries;
+    public InputField boundaryScale;
 
     public List<GameObject> placed = new List<GameObject>();
 
@@ -39,6 +40,7 @@ public class LevelEditorInstantiate : MonoBehaviour
     private void Start()
     {
         canPlace = false;
+        boundaryScale.text = boundaries.boundaryScale.ToString();
     }
 
     private void Update()
@@ -100,8 +102,6 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(transform.position.y);
-            Debug.Log(boundaries.boundaries[0]);
             if (canPlace)
             {
                 if (followingMouse)
@@ -193,6 +193,12 @@ public class LevelEditorInstantiate : MonoBehaviour
             }
         }
 
+        if (float.TryParse(boundaryScale.text, out float ret))
+        {
+            boundaries.boundaryScale = ret;
+        }
+        
+
         //string x = transX.text.ToString();
         //Debug.Log("update");
         //for (int i = 0; i < x.Length; i++)
@@ -204,6 +210,7 @@ public class LevelEditorInstantiate : MonoBehaviour
         //        transX.text = x;
         //    }
         //}
+
     }
 
     public void ChangeItem(int number)
