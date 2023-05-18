@@ -75,13 +75,13 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         }
 
-        if (canPlace == false || isInBoundaries == false)
+        if (canPlace == false || !isInBoundaries)
         {
             child0.gameObject.SetActive(false);
             child1.gameObject.SetActive(false);
         }
 
-        if (transform.position.y > (boundaries.boundaries[0] + 2) && transform.position.y < (boundaries.boundaries[1]) && transform.position.x > (boundaries.boundaries[2]) && transform.position.x < (boundaries.boundaries[3]))
+        if (Input.mousePosition.y / Screen.height > 0.18 && Input.mousePosition.y / Screen.height < 0.88)
         {
             isInBoundaries = true;
         }
@@ -108,6 +108,7 @@ public class LevelEditorInstantiate : MonoBehaviour
                 {
                     if (isInBoundaries)
                     {
+                        Debug.Log(Input.mousePosition.y / Screen.height);
                         if (placed.Count < blockLimit)
                         {
                             placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));

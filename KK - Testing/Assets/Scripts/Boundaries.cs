@@ -38,10 +38,7 @@ public class Boundaries : MonoBehaviour
         originalScale[3] = rightWall.transform.localScale;
         originalScale[4] = backdrop.transform.localScale;
 
-        boundaries[0] = ground.transform.position.y;
-        boundaries[1] = ceiling.transform.position.y;
-        boundaries[2] = leftWall.transform.position.x;
-        boundaries[3] = rightWall.transform.position.x;
+        UpdateBoundaries();
     }
 
     private void Update()
@@ -62,5 +59,15 @@ public class Boundaries : MonoBehaviour
         leftWall.transform.localScale = originalScale[2] * scale;
         rightWall.transform.localScale = originalScale[3] * scale;
         backdrop.transform.localScale = originalScale[4] * scale;
+
+        UpdateBoundaries();
+    }
+
+    public void UpdateBoundaries()
+    {
+        boundaries[0] = ground.transform.position.y;
+        boundaries[1] = ceiling.transform.position.y;
+        boundaries[2] = leftWall.transform.position.x;
+        boundaries[3] = rightWall.transform.position.x;
     }
 }
