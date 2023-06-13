@@ -69,21 +69,21 @@ public class StartScreen : MonoBehaviour
         int ret = 0;
         if (int.TryParse(LevelSelect.text, out ret))
         {
-            if (ret <= 0 || ret > SceneManager.sceneCountInBuildSettings - 2)
+            if (ret <= 0 || ret > SceneManager.sceneCountInBuildSettings - 1)
             {
                 PlayerPrefs.SetInt("isTimed", 1);
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
             else
             {
                 PlayerPrefs.SetInt("isTimed", 0);
-                SceneManager.LoadScene(ret + 1);
+                SceneManager.LoadScene(ret + 2);
             }
         }
         else
         {
             PlayerPrefs.SetInt("isTimed", 1);
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
 

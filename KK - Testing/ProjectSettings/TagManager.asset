@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Portal
   - Backdrop
+  - Ground
   layers:
   - Default
   - TransparentFX

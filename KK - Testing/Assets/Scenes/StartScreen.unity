@@ -4832,7 +4832,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bean Game
+  m_Text: Beanboozle
 --- !u!222 &1665373695
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5081,13 +5081,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1713048434}
   m_TextComponent: {fileID: 302562378}
   m_Placeholder: {fileID: 1968734354}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
