@@ -5088,7 +5088,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 1
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -5933,7 +5933,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Level Number
 --- !u!222 &1968734355
 CanvasRenderer:
   m_ObjectHideFlags: 0
