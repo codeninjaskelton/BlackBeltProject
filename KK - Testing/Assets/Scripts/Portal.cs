@@ -7,14 +7,6 @@ public class Portal : MonoBehaviour
 {
     public string nextScene;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(0);
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -26,5 +18,10 @@ public class Portal : MonoBehaviour
     public void SceneLoad(int sceneNumber)
     {
         SceneManager.LoadScene(sceneNumber);
+    }
+
+    public void MainMenuLoad()
+    {
+        SceneManager.LoadScene(0);
     }
 }

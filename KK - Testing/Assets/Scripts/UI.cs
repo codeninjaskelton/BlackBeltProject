@@ -10,12 +10,28 @@ public class UI : MonoBehaviour
     public Text levelText;
     public string levelNumber;
     private string levelType;
+    public GameObject mainMenuButton;
+    public Pause pause;
 
     private void Start()
     {
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
+        pause = GameObject.Find("GameManager").GetComponent<Pause>();
+        mainMenuButton = GameObject.Find("MainMenuButton");
         levelNumber = SceneManager.GetActiveScene().name;
         LevelNumber();
+    }
+
+    private void Update()
+    {
+        if (pause.isPaused)
+        {
+            mainMenuButton.SetActive(true);
+        }
+        else
+        {
+            mainMenuButton.SetActive(false);
+        }
     }
 
     public void LevelNumber()
