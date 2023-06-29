@@ -24,4 +24,9 @@ public class Portal : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

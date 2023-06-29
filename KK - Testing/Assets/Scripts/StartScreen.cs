@@ -72,18 +72,18 @@ public class StartScreen : MonoBehaviour
             if (ret <= 0 || ret > SceneManager.sceneCountInBuildSettings - 1)
             {
                 PlayerPrefs.SetInt("isTimed", 1);
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(4);
             }
             else
             {
                 PlayerPrefs.SetInt("isTimed", 0);
-                SceneManager.LoadScene(ret + 2);
+                SceneManager.LoadScene(ret + 3);
             }
         }
         else
         {
             PlayerPrefs.SetInt("isTimed", 1);
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
     }
 
@@ -93,5 +93,10 @@ public class StartScreen : MonoBehaviour
         {
             LevelSelect.text = "Level Number...";
         }
+    }
+
+    public void LevelEditor()
+    {
+        SceneManager.LoadScene("TestingEditor");
     }
 }

@@ -11,26 +11,44 @@ public class UI : MonoBehaviour
     public string levelNumber;
     private string levelType;
     public GameObject mainMenuButton;
+    public GameObject restartLevelButton;
     public Pause pause;
+    public bool invis = false;
 
     private void Start()
     {
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
         pause = GameObject.Find("GameManager").GetComponent<Pause>();
         mainMenuButton = GameObject.Find("MainMenuButton");
+        restartLevelButton = GameObject.Find("RestartLevelButton");
         levelNumber = SceneManager.GetActiveScene().name;
         LevelNumber();
     }
 
     private void Update()
     {
-        if (pause.isPaused)
+        if (invis)
         {
-            mainMenuButton.SetActive(true);
+            mainMenuButton.SetActive(false);
+            restartLevelButton.SetActive(false);
         }
         else
         {
-            mainMenuButton.SetActive(false);
+            if (pause.isPaused)
+            {
+                mainMenuButton.SetActive(true);
+                restartLevelButton.SetActive(true);
+            }
+            else
+            {
+                mainMenuButton.SetActive(false);
+                restartLevelButton.SetActive(false);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Toggle(invis);
         }
     }
 
@@ -91,5 +109,27 @@ public class UI : MonoBehaviour
             }
         }
         
+    }
+
+    public void Toggle(bool bbool)
+    {
+        int toggle;
+        if (bbool)
+        {
+            toggle = 1;
+        }
+        else
+        {
+            toggle = 0;
+        }
+
+        if (toggle == 1)
+        {
+            invis = false;
+        }
+        if (toggle == 0)
+        {
+            invis = true;
+        }
     }
 }
