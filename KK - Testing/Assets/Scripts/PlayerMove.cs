@@ -36,6 +36,6 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        particles.PBounce();
+        StartCoroutine(particles.PBounce());
     }
 }
