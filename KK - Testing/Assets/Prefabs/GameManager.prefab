@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -1475297639462387350}
   - component: {fileID: 2441457973343908127}
   - component: {fileID: -7633322396507723720}
+  - component: {fileID: 3213301897343767140}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -54,6 +55,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 0}
   levelNumber: 
+  mainMenuButton: {fileID: 0}
+  restartLevelButton: {fileID: 0}
+  pause: {fileID: 0}
+  invis: 0
 --- !u!114 &1787047673941036539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +163,8 @@ MonoBehaviour:
   cmTransposer: {fileID: 0}
   minX: 1
   minY: 2
+  maxX: 0
+  maxY: 0
   constantX: 0
   constantY: 0.5
 --- !u!114 &2441457973343908127
@@ -200,7 +207,6 @@ MonoBehaviour:
   background: {fileID: 2100000, guid: f6b6eef44f93b964fae7f19e84b13d1a, type: 2}
   EvaluatedTime: 0
   speed: 1
-  directionalLight: {fileID: 0}
 --- !u!114 &-7633322396507723720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,3 +222,16 @@ MonoBehaviour:
   isPaused: 0
   cinemachineZoom: {fileID: 0}
   time: 1
+--- !u!114 &3213301897343767140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787047673941036535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efa8249e59ebe94ebfa178c75acbd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 4738493757545287077, guid: c47a6517887933849a84e28937e0c22c, type: 3}
