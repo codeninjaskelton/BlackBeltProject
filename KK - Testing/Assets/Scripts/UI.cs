@@ -14,7 +14,9 @@ public class UI : MonoBehaviour
     public GameObject restartLevelButton;
     public Pause pause;
     public bool invis = false;
-
+    public GameObject rock;
+    public Image rockImage;
+    public float alpha;
     private void Start()
     {
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
@@ -22,6 +24,9 @@ public class UI : MonoBehaviour
         mainMenuButton = GameObject.Find("MainMenuButton");
         restartLevelButton = GameObject.Find("RestartLevelButton");
         levelNumber = SceneManager.GetActiveScene().name;
+        rock = GameObject.Find("Rock");
+        rockImage = rock.GetComponent<Image>();
+        rockImage.color = new Color(1, 1, 1, 0);
         LevelNumber();
     }
 
@@ -132,4 +137,27 @@ public class UI : MonoBehaviour
             invis = true;
         }
     }
+    public void StartRock()
+    {
+        StartCoroutine(Rock());
+    }
+    public IEnumerator Rock()
+    {
+        rockImage.color = new Color(1, 1, 1, 1);
+        alpha = 1;
+        bool check = true;
+        while (check)
+        {
+            alpha -= 0.001f;
+            rockImage.color = new Color(1, 1, 1, alpha);
+            yield return new WaitForEndOfFrame();
+            if (alpha < 0)
+            {
+                check = false;
+            }
+
+        }
+
+    }
+
 }
