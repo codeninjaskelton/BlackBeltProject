@@ -1,0 +1,111 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System.IO;
+
+public class SaveManager : MonoBehaviour
+{
+    private LevelEditor level;
+    public InputField levelNameSave;
+    public InputField levelNameLoad;
+    public GameObject[] editorItems;
+
+
+    void Start()
+    {
+        CreateEditor();
+    }
+
+    LevelEditor CreateEditor()
+    {
+        level = new LevelEditor();
+        level.editorObjects = new List<EditorObject.Data>();
+        return level;
+    }
+
+    public void SaveLevel()
+    {
+        EditorObject[] foundObjects = FindObjectsOfType<EditorObject>();
+        foreach (EditorObject obj in foundObjects)
+        {
+            level.editorObjects.Add(obj.data);
+        }
+
+        string json = JsonUtility.ToJson(level);
+        string folder = Application.dataPath + "/LevelData/";
+        string levelFile = "";
+
+        if (levelNameSave.text == "")
+        {
+            levelFile = "new_level.json";
+        }
+        else
+        {
+            levelFile = levelNameSave.text + ".json";
+        }
+
+        if (!Directory.Exists(folder))
+        {
+            Directory.CreateDirectory(folder);
+        }
+
+        string path = Path.Combine(folder, levelFile);
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+
+        File.WriteAllText(path, json);
+    }
+
+    public void LoadLevel()
+    {
+        string folder = Application.dataPath + "/LevelData/";
+        string levelFile = "";
+
+        if (levelNameLoad.text == "")
+        {
+            levelFile = "new_level.json";
+        }
+        else
+        {
+            levelFile = levelNameLoad.text + ".json";
+        }
+
+        string path = Path.Combine(folder, levelFile);
+
+        if (File.Exists(path))
+        {
+            EditorObject[] foundObjects = FindObjectsOfType<EditorObject>();
+            foreach (EditorObject obj in foundObjects)
+            {
+                Destroy(obj.gameObject);
+            }
+
+            string json = File.ReadAllText(path);
+            level = JsonUtility.FromJson<LevelEditor>(json);
+            CreateFromFile();
+        }
+        //else
+    }
+
+    void CreateFromFile()
+    {
+        for (int i = 0; i < level.editorObjects.Count; i++)
+        {
+            switch (level.editorObjects[i].objectType)
+            {
+                case EditorObject.ObjectType.Block:
+                    Instantiate(editorItems[0], level.editorObjects[i].pos, level.editorObjects[i].rot);
+                    break;
+                case EditorObject.ObjectType.Star:
+                    Instantiate(editorItems[1], level.editorObjects[i].pos, level.editorObjects[i].rot);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}

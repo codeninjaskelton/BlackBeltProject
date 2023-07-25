@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6733576371256187704}
   - component: {fileID: 6733576371256187707}
   - component: {fileID: 6733576371256187706}
+  - component: {fileID: -1796355001384909490}
   m_Layer: 7
   m_Name: ProBuilderBlock
   m_TagString: Untagged
@@ -344,3 +345,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &-1796355001384909490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733576371256187701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe13f52bdce789441b2ab8ae79e901b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    objectType: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2104272596986203363}
   - component: {fileID: 2104272596986203374}
   - component: {fileID: 2104272596986203375}
+  - component: {fileID: -843999320283740084}
   m_Layer: 7
   m_Name: NothingStarCube
   m_TagString: Untagged
@@ -138,3 +139,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3cb8f2a61ebfe43bd435691f97cf32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
+  ui: {fileID: 0}
+--- !u!114 &-843999320283740084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104272596986203365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe13f52bdce789441b2ab8ae79e901b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    objectType: 1
