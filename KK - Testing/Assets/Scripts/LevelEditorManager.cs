@@ -17,7 +17,7 @@ public class LevelEditorManager : MonoBehaviour
     public Vector3 mouseStart;
 
     public int it;
-    
+
     private void Start()
     {
         
@@ -52,7 +52,7 @@ public class LevelEditorManager : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
     public IEnumerator MouseHold()

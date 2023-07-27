@@ -17,10 +17,20 @@ public class LevelEditorUI : MonoBehaviour
 
     public List<GameObject> sent = new List<GameObject>();
 
+    public GameObject BoundarySize;
+    private InputField BoundaryInputField;
+
+    public Toggle toggleSave;
+    public GameObject Save;
+    public GameObject Load;
+
     private void Start()
     {
         levelEditorInstantiate = gameObject.GetComponent<LevelEditorInstantiate>();
         levelEditorManager = gameObject.GetComponent<LevelEditorManager>();
+        BoundaryInputField = BoundarySize.transform.GetChild(1).gameObject.GetComponent<InputField>();
+        BoundarySize.SetActive(true);
+
     }
 
     private void Update()
@@ -31,7 +41,17 @@ public class LevelEditorUI : MonoBehaviour
             transX.text = (levelEditorManager.hobject.transform.position.x * 10).ToString();
             transY.text = (levelEditorManager.hobject.transform.position.y * 10).ToString();
         }
-        
+
+        if (toggleSave.isOn)
+        {
+            Save.SetActive(true);
+            Load.SetActive(true);
+        }
+        else
+        {
+            Save.SetActive(false);
+            Load.SetActive(false);
+        }
     }
 
     public void CallNewMessage(string Message)
@@ -72,5 +92,10 @@ public class LevelEditorUI : MonoBehaviour
 
         sent.RemoveAt(0);
         Destroy(newMessage);
+    }
+
+    public void BoundaryEntered()
+    {
+        BoundarySize.SetActive(false);
     }
 }

@@ -81,6 +81,11 @@ public class LevelEditorInstantiate : MonoBehaviour
             child1.gameObject.SetActive(false);
         }
 
+        if (int.TryParse(boundaryScale.text, out int boundaryS))
+        {
+            blockLimit = boundaryS * 20;
+        }
+
         if (Input.mousePosition.x / Screen.width > 0.205 && Input.mousePosition.y / Screen.height > 0.18 && Input.mousePosition.y / Screen.height < 0.88)
         {
             isInBoundaries = true;
@@ -108,17 +113,25 @@ public class LevelEditorInstantiate : MonoBehaviour
                 {
                     if (isInBoundaries)
                     {
-                        Debug.Log("x% = " + Input.mousePosition.x / Screen.width);
-                        Debug.Log("y% = " + Input.mousePosition.y / Screen.height);
-                        
-                        if (placed.Count < blockLimit)
+                        if (levelEditorUI.BoundarySize.activeInHierarchy)
                         {
-                            placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                            levelEditorUI.CallNewMessage("Enter Boundary Size");
                         }
                         else
                         {
-                            levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
+                            Debug.Log("x% = " + Input.mousePosition.x / Screen.width);
+                            Debug.Log("y% = " + Input.mousePosition.y / Screen.height);
+
+                            if (placed.Count < blockLimit)
+                            {
+                                placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                            }
+                            else
+                            {
+                                levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
+                            }
                         }
+                        
                     }
                 }
 
