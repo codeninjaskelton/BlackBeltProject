@@ -17,6 +17,7 @@ public class LevelEditorUI : MonoBehaviour
 
     public List<GameObject> sent = new List<GameObject>();
 
+    public Boundaries boundaries;
     public GameObject BoundarySize;
     private InputField BoundaryInputField;
 
@@ -97,5 +98,10 @@ public class LevelEditorUI : MonoBehaviour
     public void BoundaryEntered()
     {
         BoundarySize.SetActive(false);
+        if (int.TryParse(BoundaryInputField.text, out int boundaryS))
+        {
+            boundaries.boundaryScale = boundaryS;
+        }
+        
     }
 }

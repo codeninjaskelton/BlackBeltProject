@@ -33,7 +33,7 @@ public class LevelEditorInstantiate : MonoBehaviour
 
     public List<GameObject> placed = new List<GameObject>();
 
-    public int blockLimit;
+    public float blockLimit;
 
     public LevelEditorUI levelEditorUI;
 
@@ -47,6 +47,7 @@ public class LevelEditorInstantiate : MonoBehaviour
     {
         var child0 = transform.GetChild(0);
         var child1 = transform.GetChild(1);
+        var child2 = transform.GetChild(2);
 
         if (float.TryParse(transX.text.ToString(), out float retX))
         {
@@ -72,6 +73,9 @@ public class LevelEditorInstantiate : MonoBehaviour
                 itemParent = Collectables;
                 child1.gameObject.SetActive(true);
                 break;
+            case 2:
+                child2.gameObject.SetActive(true);
+                break;
 
         }
 
@@ -79,12 +83,10 @@ public class LevelEditorInstantiate : MonoBehaviour
         {
             child0.gameObject.SetActive(false);
             child1.gameObject.SetActive(false);
+            child2.gameObject.SetActive(false);
         }
 
-        if (int.TryParse(boundaryScale.text, out int boundaryS))
-        {
-            blockLimit = boundaryS * 20;
-        }
+        blockLimit = boundaries.boundaryScale * 20;
 
         if (Input.mousePosition.x / Screen.width > 0.205 && Input.mousePosition.y / Screen.height > 0.18 && Input.mousePosition.y / Screen.height < 0.88)
         {
@@ -124,7 +126,23 @@ public class LevelEditorInstantiate : MonoBehaviour
 
                             if (placed.Count < blockLimit)
                             {
-                                placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                                
+                                if (currentItem == 2)
+                                {
+                                    if (GameObject.FindGameObjectWithTag("Player") == null)
+                                    {
+                                        placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                                    }
+                                    else
+                                    {
+                                        levelEditorUI.CallNewMessage("Cannot Have More Than One Bean");
+                                    }
+                                }
+                                else
+                                {
+                                    placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                                }
+                                
                             }
                             else
                             {
@@ -209,10 +227,6 @@ public class LevelEditorInstantiate : MonoBehaviour
             }
         }
 
-        if (float.TryParse(boundaryScale.text, out float ret))
-        {
-            boundaries.boundaryScale = ret;
-        }
         
 
         //string x = transX.text.ToString();

@@ -5,7 +5,7 @@ using System;
 
 public class EditorObject : MonoBehaviour
 {
-    public enum ObjectType { Block, Star };
+    public enum ObjectType { Block, Star, Bean };
 
     [Serializable]
     public struct Data
@@ -13,6 +13,7 @@ public class EditorObject : MonoBehaviour
         public Vector3 pos;
         public Quaternion rot;
         public ObjectType objectType;
+        public Vector3 rotationSpeed;
     }
 
     public Data data;

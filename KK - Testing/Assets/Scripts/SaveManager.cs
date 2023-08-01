@@ -32,6 +32,7 @@ public class SaveManager : MonoBehaviour
             level.editorObjects.Add(obj.data);
         }
 
+        level.boundarySize = FindObjectOfType<Boundaries>().boundaryScale;
         string json = JsonUtility.ToJson(level);
         string folder = Application.dataPath + "/LevelData/";
         string levelFile = "";
@@ -93,19 +94,27 @@ public class SaveManager : MonoBehaviour
 
     void CreateFromFile()
     {
+
+        FindObjectOfType<Boundaries>().boundaryScale = level.boundarySize;
+        List<GameObject> placed = new List<GameObject>();
         for (int i = 0; i < level.editorObjects.Count; i++)
         {
             switch (level.editorObjects[i].objectType)
             {
                 case EditorObject.ObjectType.Block:
-                    Instantiate(editorItems[0], level.editorObjects[i].pos, level.editorObjects[i].rot);
+                    placed.Add(Instantiate(editorItems[0], level.editorObjects[i].pos, level.editorObjects[i].rot));
                     break;
                 case EditorObject.ObjectType.Star:
-                    Instantiate(editorItems[1], level.editorObjects[i].pos, level.editorObjects[i].rot);
+                    placed.Add(Instantiate(editorItems[1], level.editorObjects[i].pos, level.editorObjects[i].rot));
+                    break;
+                case EditorObject.ObjectType.Bean:
+                    placed.Add(Instantiate(editorItems[2], level.editorObjects[i].pos, level.editorObjects[i].rot));
                     break;
                 default:
                     break;
             }
         }
+        FindObjectOfType<LevelEditorInstantiate>().placed = placed;
+
     }
 }
