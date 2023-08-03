@@ -110,6 +110,12 @@ public class SaveManager : MonoBehaviour
                 case EditorObject.ObjectType.Bean:
                     placed.Add(Instantiate(editorItems[2], level.editorObjects[i].pos, level.editorObjects[i].rot));
                     break;
+                case EditorObject.ObjectType.Portal:
+                    placed.Add(Instantiate(editorItems[3], level.editorObjects[i].pos, level.editorObjects[i].rot));
+                    break;
+                case EditorObject.ObjectType.Wind:
+                    placed.Add(Instantiate(editorItems[4], level.editorObjects[i].pos, level.editorObjects[i].rot));
+                    break;
                 default:
                     break;
             }

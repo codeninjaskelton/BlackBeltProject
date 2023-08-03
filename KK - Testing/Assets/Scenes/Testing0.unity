@@ -1214,6 +1214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2092711114}
     m_Modifications:
+    - target: {fileID: 4194590377018051833, guid: b3d2e9cc0aa438948b2ae578ffb062b0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97fe3c5ddf999df439adeacdc0e6df85, type: 2}
     - target: {fileID: 4194590377018051836, guid: b3d2e9cc0aa438948b2ae578ffb062b0, type: 3}
       propertyPath: m_Name
       value: Backdrop

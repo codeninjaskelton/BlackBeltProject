@@ -45,9 +45,11 @@ public class LevelEditorInstantiate : MonoBehaviour
 
     private void Update()
     {
-        var child0 = transform.GetChild(0);
-        var child1 = transform.GetChild(1);
-        var child2 = transform.GetChild(2);
+        GameObject child0 = transform.GetChild(0).gameObject;
+        GameObject child1 = transform.GetChild(1).gameObject;
+        GameObject child2 = transform.GetChild(2).gameObject;
+        GameObject child3 = transform.GetChild(3).gameObject;
+        GameObject child4 = transform.GetChild(4).gameObject;
 
         if (float.TryParse(transX.text.ToString(), out float retX))
         {
@@ -59,8 +61,11 @@ public class LevelEditorInstantiate : MonoBehaviour
         }
 
 
-        child0.gameObject.SetActive(false);
-        child1.gameObject.SetActive(false);
+        child0.SetActive(false);
+        child1.SetActive(false);
+        child2.SetActive(false);
+        child3.SetActive(false);
+        child4.SetActive(false);
 
         switch (currentItem)
         {
@@ -76,6 +81,12 @@ public class LevelEditorInstantiate : MonoBehaviour
             case 2:
                 child2.gameObject.SetActive(true);
                 break;
+            case 3:
+                child3.gameObject.SetActive(true);
+                break;
+            case 4:
+                child4.gameObject.SetActive(true);
+                break;
 
         }
 
@@ -84,11 +95,13 @@ public class LevelEditorInstantiate : MonoBehaviour
             child0.gameObject.SetActive(false);
             child1.gameObject.SetActive(false);
             child2.gameObject.SetActive(false);
+            child3.gameObject.SetActive(false);
+            child4.gameObject.SetActive(false);
         }
 
         blockLimit = boundaries.boundaryScale * 20;
 
-        if (Input.mousePosition.x / Screen.width > 0.205 && Input.mousePosition.y / Screen.height > 0.18 && Input.mousePosition.y / Screen.height < 0.88)
+        if (Input.mousePosition.x / Screen.width > 0.205 && Input.mousePosition.y / Screen.height > 0.18/* && Input.mousePosition.y / Screen.height < 0.88*/)
         {
             isInBoundaries = true;
         }
@@ -99,11 +112,11 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Q))
         {
-            itemRotation -= 1 * rotationSpeed / 100;
+            itemRotation += 1 * rotationSpeed / 100;
         }
         if (Input.GetKey(KeyCode.E))
         {
-            itemRotation += 1 * rotationSpeed / 100;
+            itemRotation -= 1 * rotationSpeed / 100;
         }
 
 
