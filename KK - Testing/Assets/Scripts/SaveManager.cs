@@ -116,6 +116,9 @@ public class SaveManager : MonoBehaviour
                 case EditorObject.ObjectType.Wind:
                     placed.Add(Instantiate(editorItems[4], level.editorObjects[i].pos, level.editorObjects[i].rot));
                     break;
+                case EditorObject.ObjectType.Enemy:
+                    placed.Add(Instantiate(editorItems[5], level.editorObjects[i].pos, level.editorObjects[i].rot));
+                    break;
                 default:
                     break;
             }

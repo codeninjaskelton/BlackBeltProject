@@ -59,6 +59,12 @@ MonoBehaviour:
   restartLevelButton: {fileID: 0}
   pause: {fileID: 0}
   invis: 0
+  rock: {fileID: 0}
+  rockImage: {fileID: 0}
+  alpha: 0
+  message: {fileID: 4834690957043568885, guid: c25664f2634a9264e8d9059ecf31f10c, type: 3}
+  messages: {fileID: 0}
+  sent: []
 --- !u!114 &1787047673941036539
 MonoBehaviour:
   m_ObjectHideFlags: 0

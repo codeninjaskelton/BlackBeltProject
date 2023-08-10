@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelComponents : MonoBehaviour
 {
+    public UI ui;
+    public Pause pause;
     public string[] levelComponents;
     public GameObject player;
     public Spawn spawnScript;
@@ -13,6 +15,8 @@ public class LevelComponents : MonoBehaviour
 
     private void Start()
     {
+        ui = gameObject.GetComponent<UI>();
+        pause = gameObject.GetComponent<Pause>();
         player = GameObject.Find("Bean");
         spawnScript = GameObject.Find("GameManager").GetComponent<Spawn>();
         moonGravity = GameSettings.moon;
@@ -59,6 +63,30 @@ public class LevelComponents : MonoBehaviour
                     spawnScript.SpawnPlayer(player, player.transform.position, player.transform.rotation);
                 }
             }
+            if (levelComponents[i] == "enrico")
+            {
+                if (!pause.isPaused)
+                {
+                    if (Input.GetKeyDown(KeyCode.Q))
+                    {
+                        var time = Time.timeScale;
+                        if (Time.timeScale > 0.1)
+                        {
+                            time -= 0.1f;
+                            Time.timeScale = time;
+                            ui.CallNewMessage(Time.timeScale.ToString());
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        var time = Time.timeScale;
+                        time += 0.1f;
+                        Time.timeScale = time;
+                        ui.CallNewMessage(Time.timeScale.ToString());
+                    }
+                }
+            }
+            
         }
     }
 }

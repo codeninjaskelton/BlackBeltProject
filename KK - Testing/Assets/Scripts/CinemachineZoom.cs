@@ -41,6 +41,14 @@ public class CinemachineZoom : MonoBehaviour
         StartCoroutine(EndZoom(bean, portal, collectables));
     }
 
+    private void Update()
+    {
+        if (!pause.isPaused)
+        {
+            ogtimescale = Time.timeScale;
+        }
+    }
+
     public IEnumerator EndZoom(GameObject player, GameObject exit, GameObject[] items)
     {
         yield return new WaitForSeconds(3);

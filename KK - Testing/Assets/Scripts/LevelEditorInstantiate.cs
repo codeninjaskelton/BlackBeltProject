@@ -50,6 +50,7 @@ public class LevelEditorInstantiate : MonoBehaviour
         GameObject child2 = transform.GetChild(2).gameObject;
         GameObject child3 = transform.GetChild(3).gameObject;
         GameObject child4 = transform.GetChild(4).gameObject;
+        GameObject child5 = transform.GetChild(5).gameObject;
 
         if (float.TryParse(transX.text.ToString(), out float retX))
         {
@@ -66,6 +67,7 @@ public class LevelEditorInstantiate : MonoBehaviour
         child2.SetActive(false);
         child3.SetActive(false);
         child4.SetActive(false);
+        child5.SetActive(false);
 
         switch (currentItem)
         {
@@ -87,6 +89,9 @@ public class LevelEditorInstantiate : MonoBehaviour
             case 4:
                 child4.gameObject.SetActive(true);
                 break;
+            case 5:
+                child5.gameObject.SetActive(true);
+                break;
 
         }
 
@@ -97,6 +102,7 @@ public class LevelEditorInstantiate : MonoBehaviour
             child2.gameObject.SetActive(false);
             child3.gameObject.SetActive(false);
             child4.gameObject.SetActive(false);
+            child5.gameObject.SetActive(false);
         }
 
         blockLimit = boundaries.boundaryScale * 20;

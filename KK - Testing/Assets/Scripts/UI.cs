@@ -17,6 +17,11 @@ public class UI : MonoBehaviour
     public GameObject rock;
     public Image rockImage;
     public float alpha;
+
+    public GameObject message;
+    public GameObject messages;
+    public List<GameObject> sent = new List<GameObject>();
+
     private void Start()
     {
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
@@ -27,6 +32,7 @@ public class UI : MonoBehaviour
         rock = GameObject.Find("Rock");
         rockImage = rock.GetComponent<Image>();
         rockImage.color = new Color(1, 1, 1, 0);
+        messages = GameObject.Find("Messages");
         LevelNumber();
     }
 
@@ -158,6 +164,46 @@ public class UI : MonoBehaviour
 
         }
 
+    }
+
+    public void CallNewMessage(string Message)
+    {
+        StartCoroutine(NewMessage(Message));
+    }
+    public IEnumerator NewMessage(string Message)
+    {
+        var newMessage = Instantiate(message, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0), messages.transform);
+        foreach (GameObject gobject in sent)
+        {
+            gobject.transform.position += new Vector3(0, 20f, 0);
+
+
+        }
+        sent.Add(newMessage);
+        var newMessageText = newMessage.GetComponent<Text>();
+        newMessageText.text = Message;
+        newMessage.GetComponent<RectTransform>().localPosition = Vector2.zero;
+
+        while (newMessageText.color.a < 1)
+        {
+            var newMessageTextColor = newMessageText.color;
+            newMessageTextColor.a += 0.1f;
+            newMessageText.color = newMessageTextColor;
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        while (newMessageText.color.a > 0)
+        {
+            var newMessageTextColor = newMessageText.color;
+            newMessageTextColor.a -= 0.01f;
+            newMessageText.color = newMessageTextColor;
+
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        sent.RemoveAt(0);
+        Destroy(newMessage);
     }
 
 }
