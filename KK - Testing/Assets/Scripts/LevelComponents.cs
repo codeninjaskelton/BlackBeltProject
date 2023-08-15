@@ -11,7 +11,7 @@ public class LevelComponents : MonoBehaviour
     public GameObject player;
     public Spawn spawnScript;
     public bool moonGravity;
-    
+    public float timeSpeed = 1;
 
     private void Start()
     {
@@ -20,6 +20,8 @@ public class LevelComponents : MonoBehaviour
         player = GameObject.Find("Bean");
         spawnScript = GameObject.Find("GameManager").GetComponent<Spawn>();
         moonGravity = GameSettings.moon;
+        Time.timeScale = 1;
+        timeSpeed = 1;
 
         Physics.gravity = new Vector3(0, -9.81f);
         
@@ -40,11 +42,12 @@ public class LevelComponents : MonoBehaviour
             }
             
         }
+
     }
 
     private void Update()
     {
-        
+        //timeSpeed = Time.timeScale;
 
         for (var i = 0; i < levelComponents.Length; i++)
         {
@@ -69,24 +72,42 @@ public class LevelComponents : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
-                        var time = Time.timeScale;
-                        if (Time.timeScale > 0.1)
-                        {
-                            time -= 0.1f;
-                            Time.timeScale = time;
-                            ui.CallNewMessage(Time.timeScale.ToString());
-                        }
+                        Slower();
+                        
                     }
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        var time = Time.timeScale;
-                        time += 0.1f;
-                        Time.timeScale = time;
-                        ui.CallNewMessage(Time.timeScale.ToString());
-                    }
+                        Faster();
+
+                    }  
+                    Time.timeScale = timeSpeed;
                 }
             }
             
         }
+     
+    }
+
+    public void Slower()
+    {
+        if (timeSpeed > 0.2f)
+        {
+            //float time = timeSpeed;
+            timeSpeed -= 0.1f;
+            timeSpeed = Mathf.Round(timeSpeed * 10) / 10;
+            //timeSpeed = time;
+            ui.CallNewMessage(timeSpeed.ToString());
+        }
+
+    }
+
+    public void Faster()
+    {
+        //float time = timeSpeed;
+        timeSpeed += 0.1f;
+        timeSpeed = Mathf.Round(timeSpeed * 10) / 10;
+       // timeSpeed = time;
+        ui.CallNewMessage(timeSpeed.ToString());
+
     }
 }

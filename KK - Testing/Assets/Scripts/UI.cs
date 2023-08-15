@@ -22,6 +22,12 @@ public class UI : MonoBehaviour
     public GameObject messages;
     public List<GameObject> sent = new List<GameObject>();
 
+    public Collectables collectables;
+    public GameObject arrow;
+    public GameObject target;
+
+    public GameObject bean;
+
     private void Start()
     {
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
@@ -33,6 +39,8 @@ public class UI : MonoBehaviour
         rockImage = rock.GetComponent<Image>();
         rockImage.color = new Color(1, 1, 1, 0);
         messages = GameObject.Find("Messages");
+        arrow = GameObject.Find("Arrow");
+        bean = GameObject.FindGameObjectWithTag("Player");
         LevelNumber();
     }
 
@@ -61,6 +69,8 @@ public class UI : MonoBehaviour
         {
             Toggle(invis);
         }
+
+        Vector3 dArrow = (target.transform.position - bean.transform.position).normalized;
     }
 
     public void LevelNumber()
