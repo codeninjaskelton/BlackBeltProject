@@ -90,7 +90,7 @@ public class LevelComponents : MonoBehaviour
 
     public void Slower()
     {
-        if (timeSpeed > 0.2f)
+        if (timeSpeed > 0.1f)
         {
             //float time = timeSpeed;
             timeSpeed -= 0.1f;
@@ -103,11 +103,15 @@ public class LevelComponents : MonoBehaviour
 
     public void Faster()
     {
-        //float time = timeSpeed;
-        timeSpeed += 0.1f;
-        timeSpeed = Mathf.Round(timeSpeed * 10) / 10;
-       // timeSpeed = time;
-        ui.CallNewMessage(timeSpeed.ToString());
+        if (timeSpeed < 1)
+        {
+            //float time = timeSpeed;
+            timeSpeed += 0.1f;
+            timeSpeed = Mathf.Round(timeSpeed * 10) / 10;
+            // timeSpeed = time;
+            ui.CallNewMessage(timeSpeed.ToString());
+        }
+        
 
     }
 }

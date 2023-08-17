@@ -70,7 +70,9 @@ public class UI : MonoBehaviour
             Toggle(invis);
         }
 
-        Vector3 dArrow = (target.transform.position - bean.transform.position).normalized;
+        arrow.transform.localPosition = new Vector3(bean.transform.position.x, bean.transform.position.y, -2);
+        arrow.transform.up = target.transform.position - bean.transform.position;
+        
     }
 
     public void LevelNumber()
