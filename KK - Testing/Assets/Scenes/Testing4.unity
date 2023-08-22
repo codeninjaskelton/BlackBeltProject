@@ -973,6 +973,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1787047673941036534, guid: 15faf2e9bbf580642b0a408d5e85bef6, type: 3}
+      propertyPath: collectables
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1787047673941036537, guid: 15faf2e9bbf580642b0a408d5e85bef6, type: 3}
       propertyPath: m_RootOrder
       value: 5

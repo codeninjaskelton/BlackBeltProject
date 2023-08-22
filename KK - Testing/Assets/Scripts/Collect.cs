@@ -6,7 +6,7 @@ public class Collect : MonoBehaviour
 {
     private GameObject portal;
     private Collectables collectables;
-    private bool lastCollectable = false;
+    public bool lastCollectable = false;
     public GameObject collectSound;
     public UI ui;
 
@@ -26,25 +26,29 @@ public class Collect : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            
             GameObject c = Instantiate(collectSound);
             c.GetComponent<AudioSource>().time = 0.10f;
             StopCoroutine(ui.Rock());
             ui.StartRock();
-            if (portal.activeInHierarchy == false)
-            {
-                gameObject.SetActive(false);
-                if (lastCollectable == false)
-                {
-                    collectables.collectables[collectables.collectables.Length - collectables.collectableNumber].SetActive(true);
-                    collectables.collectableNumber -= 1;
-                }
-            }
-
             if (lastCollectable == true)
             {
                 PortalOn();
             }
-            
+            if (portal.activeInHierarchy)
+            {
+                gameObject.SetActive(false);
+
+                collectables.collectables[collectables.collectables.Length - collectables.collectableNumber] = null;
+
+                if (!lastCollectable)
+                {
+                    collectables.collectables[collectables.collectables.Length - collectables.collectableNumber].SetActive(true);
+                    collectables.collectableNumber -= 1;
+                }
+                Destroy(gameObject);
+            }
+
         }
     }
     

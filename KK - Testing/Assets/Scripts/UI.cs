@@ -41,6 +41,7 @@ public class UI : MonoBehaviour
         messages = GameObject.Find("Messages");
         arrow = GameObject.Find("Arrow");
         bean = GameObject.FindGameObjectWithTag("Player");
+        collectables = GetComponent<Collectables>();
         LevelNumber();
     }
 
@@ -70,7 +71,9 @@ public class UI : MonoBehaviour
             Toggle(invis);
         }
 
-        arrow.transform.localPosition = new Vector3(bean.transform.position.x, bean.transform.position.y, -2);
+        target = collectables.collectables[collectables.collectables.Length - collectables.collectableNumber];
+
+        //arrow.transform.localPosition = new Vector3(bean.transform.position.x, bean.transform.position.y, -2);
         arrow.transform.up = target.transform.position - bean.transform.position;
         
     }
