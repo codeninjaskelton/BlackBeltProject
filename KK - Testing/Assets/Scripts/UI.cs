@@ -37,7 +37,7 @@ public class UI : MonoBehaviour
         levelNumber = SceneManager.GetActiveScene().name;
         rock = GameObject.Find("Rock");
         rockImage = rock.GetComponent<Image>();
-        rockImage.color = new Color(1, 1, 1, 0);
+        rockImage.material.color = new Color(1, 1, 1, 0);
         messages = GameObject.Find("Messages");
         arrow = GameObject.Find("Arrow");
         bean = GameObject.FindGameObjectWithTag("Player");
@@ -71,9 +71,17 @@ public class UI : MonoBehaviour
             Toggle(invis);
         }
 
-        target = collectables.collectables[collectables.collectables.Length - collectables.collectableNumber];
+        if (collectables.collectableNumber == 0)
+        {
+            target = collectables.portal;
+        }
+        else
+        {
+            target = collectables.collectables[collectables.collectables.Length - collectables.collectableNumber];
+        }
+        
 
-        //arrow.transform.localPosition = new Vector3(bean.transform.position.x, bean.transform.position.y, -2);
+        arrow.transform.localPosition = new Vector3(bean.transform.position.x, bean.transform.position.y, -2);
         arrow.transform.up = target.transform.position - bean.transform.position;
         
     }
@@ -164,13 +172,13 @@ public class UI : MonoBehaviour
     }
     public IEnumerator Rock()
     {
-        rockImage.color = new Color(1, 1, 1, 1);
+        rockImage.material.color = new Color(1, 1, 1, 1);
         alpha = 1;
         bool check = true;
         while (check)
         {
             alpha -= 0.001f;
-            rockImage.color = new Color(1, 1, 1, alpha);
+            rockImage.material.color = new Color(1, 1, 1, alpha);
             yield return new WaitForEndOfFrame();
             if (alpha < 0)
             {

@@ -31,22 +31,26 @@ public class Collect : MonoBehaviour
             c.GetComponent<AudioSource>().time = 0.10f;
             StopCoroutine(ui.Rock());
             ui.StartRock();
+            //collectables.collectables[collectables.collectables.Length - collectables.collectableNumber] = null;
+            collectables.collectableNumber -= 1;
+            gameObject.SetActive(false);
             if (lastCollectable == true)
             {
                 PortalOn();
             }
+
             if (portal.activeInHierarchy)
             {
-                gameObject.SetActive(false);
+                
 
-                collectables.collectables[collectables.collectables.Length - collectables.collectableNumber] = null;
-
+                
+                
                 if (!lastCollectable)
                 {
                     collectables.collectables[collectables.collectables.Length - collectables.collectableNumber].SetActive(true);
-                    collectables.collectableNumber -= 1;
+                    
                 }
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
 
         }
