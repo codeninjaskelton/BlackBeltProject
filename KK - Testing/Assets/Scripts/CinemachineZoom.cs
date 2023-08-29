@@ -18,6 +18,7 @@ public class CinemachineZoom : MonoBehaviour
     public Pause pause;
     public GameObject boundary;
     public float ogtimescale;
+    public static bool gameStarted;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class CinemachineZoom : MonoBehaviour
 
     public IEnumerator EndZoom(GameObject player, GameObject exit, GameObject[] items)
     {
+        gameStarted = false;
         yield return new WaitForSeconds(3);
         cm.m_Follow = player.transform;
         if (player)
@@ -75,6 +77,7 @@ public class CinemachineZoom : MonoBehaviour
             yield return new WaitForSeconds(0.0001f);
             cm.m_Lens.OrthographicSize = Mathf.Lerp(startZoom, endZoom, elasped);
         }
+        gameStarted = true;
     }
     
     public void Pause()

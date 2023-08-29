@@ -24,7 +24,9 @@ public class UI : MonoBehaviour
 
     public Collectables collectables;
     public GameObject arrow;
+    public List<Image> arrowChildren = new List<Image>();
     public GameObject target;
+    public bool startedGame;
 
     public GameObject bean;
 
@@ -40,6 +42,11 @@ public class UI : MonoBehaviour
         rockImage.material.color = new Color(1, 1, 1, 0);
         messages = GameObject.Find("Messages");
         arrow = GameObject.Find("Arrow");
+        arrowChildren = arrow.GetComponentsInChildren<Image>().ToList();
+        for (int i = 0; i < arrowChildren.Count; i++)
+        {
+            arrowChildren[i].enabled = false;
+        }
         bean = GameObject.FindGameObjectWithTag("Player");
         collectables = GetComponent<Collectables>();
         LevelNumber();
@@ -54,16 +61,37 @@ public class UI : MonoBehaviour
         }
         else
         {
-            if (pause.isPaused)
+            if (CinemachineZoom.gameStarted)
             {
-                mainMenuButton.SetActive(true);
-                restartLevelButton.SetActive(true);
+                if (pause.isPaused)
+                {
+                    mainMenuButton.SetActive(true);
+                    restartLevelButton.SetActive(true);
+                    for (int i = 0; i < arrowChildren.Count; i++)
+                    {
+                        arrowChildren[i].enabled = false;
+                    }
+                }
+                else
+                {
+                    mainMenuButton.SetActive(false);
+                    restartLevelButton.SetActive(false);
+                    for (int i = 0; i < arrowChildren.Count; i++)
+                    {
+                        arrowChildren[i].enabled = true;
+                    }
+                }
             }
-            else
+
+            if (CinemachineZoom.gameStarted && !startedGame)
             {
-                mainMenuButton.SetActive(false);
-                restartLevelButton.SetActive(false);
+                startedGame = true;
+                for (int i = 0; i < arrowChildren.Count; i++)
+                {
+                    arrowChildren[i].enabled = true;
+                }
             }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -81,7 +109,7 @@ public class UI : MonoBehaviour
         }
         
 
-        arrow.transform.localPosition = new Vector3(bean.transform.position.x, bean.transform.position.y, -2);
+        
         arrow.transform.up = target.transform.position - bean.transform.position;
         
     }
