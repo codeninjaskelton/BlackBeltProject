@@ -17,7 +17,7 @@ public class Colour : MonoBehaviour
         background = GameObject.FindGameObjectWithTag("Backdrop").GetComponent<MeshRenderer>();
         if (isRock)
         {
-            background = GameObject.FindGameObjectWithTag("Player").GetComponent<MeshRenderer>();
+            //background = GameObject.FindGameObjectWithTag("Player").GetComponent<MeshRenderer>();
         }
     }
 

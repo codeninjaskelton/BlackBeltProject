@@ -16,9 +16,11 @@ public class Collect : MonoBehaviour
         collectables.collectableNumber = collectables.collectables.Length;
         portal = collectables.GetPortal();
         ui = GameObject.Find("GameManager").GetComponent<UI>();
+        
         if (gameObject == collectables.collectables[collectables.collectables.Length - 1])
         {
             lastCollectable = true;
+            Debug.Log("last collectable: " + gameObject.name);
         }
     }
 
@@ -39,18 +41,10 @@ public class Collect : MonoBehaviour
                 PortalOn();
             }
 
-            if (portal.activeInHierarchy)
+            if (!lastCollectable)
             {
-                
+                collectables.collectables[collectables.collectables.Length - collectables.collectableNumber].SetActive(true);
 
-                
-                
-                if (!lastCollectable)
-                {
-                    collectables.collectables[collectables.collectables.Length - collectables.collectableNumber].SetActive(true);
-                    
-                }
-                //Destroy(gameObject);
             }
 
         }
