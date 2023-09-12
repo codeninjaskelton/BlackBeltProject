@@ -41,7 +41,7 @@ public class GameSettings : MonoBehaviour
 
     private void Update()
     {
-        brightnessLevel = brightnessSlider.GetComponent<Slider>().value * 800;
+        brightnessLevel = Mathf.Round(brightnessSlider.GetComponent<Slider>().value * 800);
         PlayerPrefs.SetFloat("Brightness", brightnessLevel);
         PlayerPrefs.SetFloat("TrailLength", trailLength);
         brightnessText.GetComponent<Text>().text = "Brightness " + brightnessLevel;

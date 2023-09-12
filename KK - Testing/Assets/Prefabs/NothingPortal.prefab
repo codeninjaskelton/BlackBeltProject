@@ -217,6 +217,18 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0
       objectReference: {fileID: 0}
@@ -283,8 +295,24 @@ PrefabInstance:
       value: Portacle System
       objectReference: {fileID: 0}
     - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.105882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903351541989158540, guid: 2993437079bbf00428d38d90d145a292, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2993437079bbf00428d38d90d145a292, type: 3}
