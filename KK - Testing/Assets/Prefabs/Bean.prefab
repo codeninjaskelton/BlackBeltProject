@@ -186,10 +186,10 @@ WindZone:
   m_GameObject: {fileID: 7550037511599792138}
   m_Enabled: 1
   m_Mode: 1
-  m_Radius: 3
+  m_Radius: 10
   m_WindMain: 3
-  m_WindTurbulence: 1
-  m_WindPulseMagnitude: 100
+  m_WindTurbulence: 50
+  m_WindPulseMagnitude: 50
   m_WindPulseFrequency: 0.01
 --- !u!1001 &4293088863181477640
 PrefabInstance:
@@ -236,15 +236,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387371239952071987, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4387371239952071987, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4387371239952071987, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4387371239952071987, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7922592902041278834, guid: 56c5eb4702cf8da4e9d1ea6d866e8d23, type: 3}
       propertyPath: ExternalForcesModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7922592902041278834, guid: 56c5eb4702cf8da4e9d1ea6d866e8d23, type: 3}
       propertyPath: TrailModule.sizeAffectsLifetime

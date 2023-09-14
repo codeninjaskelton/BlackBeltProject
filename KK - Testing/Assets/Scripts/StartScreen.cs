@@ -20,7 +20,7 @@ public class StartScreen : MonoBehaviour
         main.SetActive(true);
         settings.SetActive(false);
         GameObject.Find("TimeText").GetComponent<Text>().text = PlayerPrefs.GetFloat("time").ToString();
-        
+        PlayerPrefs.SetInt("isTimed", 1);
         
     }
 
@@ -80,7 +80,7 @@ public class StartScreen : MonoBehaviour
                 SceneManager.LoadScene(ret + 3);
             }
         }
-        else
+        if (LevelSelect.text == "")
         {
             PlayerPrefs.SetInt("isTimed", 1);
             SceneManager.LoadScene(4);
