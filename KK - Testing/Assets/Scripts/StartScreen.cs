@@ -9,6 +9,7 @@ public class StartScreen : MonoBehaviour
     public GameObject controls;
     public GameObject main;
     public GameObject settings;
+    public GameObject credits;
     public InputField LevelSelect;
     public Colour colour;
     public Image bgColor;
@@ -19,7 +20,8 @@ public class StartScreen : MonoBehaviour
         controls.SetActive(false);
         main.SetActive(true);
         settings.SetActive(false);
-        GameObject.Find("TimeText").GetComponent<Text>().text = PlayerPrefs.GetFloat("time").ToString();
+        credits.SetActive(false);
+        GameObject.Find("TimeText").GetComponent<Text>().text = "Time of Last Victory: " + (Mathf.Round(PlayerPrefs.GetFloat("LastV") * 100)/100).ToString();
         PlayerPrefs.SetInt("isTimed", 1);
         
     }
@@ -37,6 +39,11 @@ public class StartScreen : MonoBehaviour
     public void ToggleSettings()
     {
         Toggle(settings, main);
+    }
+
+    public void ToggleCredits()
+    {
+        Toggle(credits, main);
     }
 
     public void Toggle(GameObject bject1, GameObject bject2)

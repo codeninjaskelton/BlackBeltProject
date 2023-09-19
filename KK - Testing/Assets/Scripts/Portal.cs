@@ -11,6 +11,10 @@ public class Portal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (nextScene == "StartScreen")
+            {
+                PlayerPrefs.SetFloat("LastV", PlayerPrefs.GetFloat("time"));
+            }
             SceneManager.LoadScene(nextScene);
         }
     }

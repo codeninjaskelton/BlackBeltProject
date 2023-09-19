@@ -30,7 +30,8 @@ public class Timer : MonoBehaviour
             {
                 time += Time.deltaTime;
                 PlayerPrefs.SetFloat("time", time);
-                timeText.GetComponent<Text>().text = time.ToString();
+                float t = Mathf.Round(time * 100) / 100;
+                timeText.GetComponent<Text>().text = t.ToString();
             }
         }
         else
