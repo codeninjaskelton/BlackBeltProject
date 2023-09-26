@@ -214,6 +214,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1145670331248823347, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145670331248823347, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145670331248823347, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4387371239952071987, guid: 71ba0d6e88f4d56488bd6f3b23ceaff2, type: 3}
       propertyPath: m_RootOrder
       value: 1
