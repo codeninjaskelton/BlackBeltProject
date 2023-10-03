@@ -21,6 +21,7 @@ public class LevelEditorInstantiate : MonoBehaviour
     [Header("Rotation")]
     public float itemRotation = 0;
     public float rotationSpeed = 100;
+    public InputField rotZ;
 
     [Header("Mouse")]
     public bool canPlace;
@@ -52,16 +53,26 @@ public class LevelEditorInstantiate : MonoBehaviour
         GameObject child4 = transform.GetChild(4).gameObject;
         GameObject child5 = transform.GetChild(5).gameObject;
 
-        if (float.TryParse(transX.text.ToString(), out float retX))
+        if (canPlace)
         {
-            transPos.x = retX;
+            if (float.TryParse(transX.text.ToString(), out float retX))
+            {
+                transPos.x = retX;
+            }
+            if (float.TryParse(transY.text.ToString(), out float retY))
+            {
+                transPos.y = retY;
+            }
+            if (float.TryParse(rotZ.text.ToString(), out float retZ))
+            {
+                itemRotation = retZ;
+            }
+            if (rotZ.text == "")
+            {
+                itemRotation = 0;
+            }
         }
-        if (float.TryParse(transY.text.ToString(), out float retY))
-        {
-            transPos.y = retY;
-        }
-
-
+        
         child0.SetActive(false);
         child1.SetActive(false);
         child2.SetActive(false);
@@ -111,7 +122,7 @@ public class LevelEditorInstantiate : MonoBehaviour
         {
             isInBoundaries = true;
         }
-        else
+        else if (followingMouse)
         {
             isInBoundaries = false;
         }
@@ -172,7 +183,7 @@ public class LevelEditorInstantiate : MonoBehaviour
                     }
                 }
 
-
+                
 
 
             }
@@ -184,9 +195,11 @@ public class LevelEditorInstantiate : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                
                 transX.DeactivateInputField();
                 transY.DeactivateInputField();
-
+                rotZ.DeactivateInputField();
+                
                 if (placed.Count < blockLimit)
                 {
 

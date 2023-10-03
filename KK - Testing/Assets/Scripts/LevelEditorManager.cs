@@ -13,6 +13,7 @@ public class LevelEditorManager : MonoBehaviour
 
     public InputField transX;
     public InputField transY;
+    public InputField rotZ;
 
     public Vector3 mouseStart;
 
@@ -27,7 +28,7 @@ public class LevelEditorManager : MonoBehaviour
     {
         if (!levelEditorInstantiate.canPlace)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && levelEditorInstantiate.isInBoundaries)
             {
                 hobject = null;
                 it++;
@@ -35,6 +36,9 @@ public class LevelEditorManager : MonoBehaviour
                 if (Physics.Raycast(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, -10), Vector3.forward, out hit, Mathf.Infinity, layermaskname))
                 {
                     hobject = hit.transform.gameObject;
+                    transX.text = hobject.transform.position.x.ToString();
+                    transY.text = hobject.transform.position.y.ToString();
+                    rotZ.text = hobject.transform.rotation.eulerAngles.z.ToString();
                     StartCoroutine(levelEditorColorManager.Switch2Rock2(hobject, it));
                     mouseStart = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - hobject.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - hobject.transform.position.y, 0);
                     StartCoroutine(MouseHold());
@@ -44,13 +48,42 @@ public class LevelEditorManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete))
             {
-                List<GameObject> placed = levelEditorInstantiate.placed;
-                if (placed.Contains(hobject))
+                if (levelEditorInstantiate.isInBoundaries)
                 {
-                    placed.Remove(hobject);
-                    Destroy(hobject);
+                    List<GameObject> placed = levelEditorInstantiate.placed;
+                    if (placed.Contains(hobject))
+                    {
+                        placed.Remove(hobject);
+                        Destroy(hobject);
+                    }
                 }
             }
+
+            if (hobject)
+            {
+                string X = transX.text;
+                string Y = transY.text;
+                string Z = rotZ.text;
+
+                if (float.TryParse(X, out float retX))
+                {
+                    hobject.transform.position = new Vector3(retX, hobject.transform.position.y, hobject.transform.position.z);
+                }
+                if (float.TryParse(Y, out float retY))
+                {
+                    hobject.transform.position = new Vector3(hobject.transform.position.x, retY, hobject.transform.position.z);
+                }
+                if (float.TryParse(Z, out float retZ))
+                {
+                    hobject.transform.rotation = Quaternion.Euler(hobject.transform.position.x, hobject.transform.position.y, retZ);
+                }
+                if (rotZ.text == "")
+                {
+                    hobject.transform.rotation = Quaternion.Euler(0 ,0 ,0);
+                }
+            }
+            
+
         }
 
     }
