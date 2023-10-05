@@ -37,11 +37,6 @@ public class LevelEditorUI : MonoBehaviour
     private void Update()
     {
         blockLimitText.text = levelEditorInstantiate.placed.Count + "/" + levelEditorInstantiate.blockLimit;
-        if (levelEditorManager.hobject != null)
-        {
-            transX.text = (levelEditorManager.hobject.transform.position.x).ToString();
-            transY.text = (levelEditorManager.hobject.transform.position.y).ToString();
-        }
 
         if (toggleSave.isOn)
         {

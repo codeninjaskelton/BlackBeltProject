@@ -19,6 +19,10 @@ public class LevelEditorManager : MonoBehaviour
 
     public int it;
 
+    public string vX;
+    public string vY;
+    public string vZ;
+
     private void Start()
     {
         
@@ -26,6 +30,26 @@ public class LevelEditorManager : MonoBehaviour
 
     private void Update()
     {
+        if (hobject != null)
+        {
+            if (transX.text == vX)
+            {
+                transX.text = hobject.transform.position.x.ToString();
+            }
+            if (transY.text == vY)
+            {
+                transY.text = hobject.transform.position.y.ToString();
+            }
+            if (transX.text == "")
+            {
+                hobject.transform.position = new Vector3(0, hobject.transform.position.y, hobject.transform.position.z);
+            }
+            if (transY.text == "")
+            {
+                hobject.transform.position = new Vector3(hobject.transform.position.x, 0, hobject.transform.position.z);
+            }
+        }
+        
         if (!levelEditorInstantiate.canPlace)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && levelEditorInstantiate.isInBoundaries)
@@ -36,8 +60,6 @@ public class LevelEditorManager : MonoBehaviour
                 if (Physics.Raycast(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, -10), Vector3.forward, out hit, Mathf.Infinity, layermaskname))
                 {
                     hobject = hit.transform.gameObject;
-                    transX.text = hobject.transform.position.x.ToString();
-                    transY.text = hobject.transform.position.y.ToString();
                     rotZ.text = hobject.transform.rotation.eulerAngles.z.ToString();
                     StartCoroutine(levelEditorColorManager.Switch2Rock2(hobject, it));
                     mouseStart = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - hobject.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - hobject.transform.position.y, 0);
@@ -77,15 +99,21 @@ public class LevelEditorManager : MonoBehaviour
                 {
                     hobject.transform.rotation = Quaternion.Euler(hobject.transform.position.x, hobject.transform.position.y, retZ);
                 }
-                if (rotZ.text == "")
+                if (rotZ.text == vZ)
                 {
-                    hobject.transform.rotation = Quaternion.Euler(0 ,0 ,0);
+                    if (rotZ.text == "")
+                    {
+                        hobject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    }
                 }
             }
             
 
         }
 
+        vX = transX.text;
+        vY = transY.text;
+        vZ = rotZ.text;
     }
 
     public IEnumerator MouseHold()
