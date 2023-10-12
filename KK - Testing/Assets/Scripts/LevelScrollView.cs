@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class LevelScrollView : MonoBehaviour
 {
     public List<string> allLevels = new List<string>();
     public GameObject levelNameButton;
     public GameObject content;
+    public string levelData;
+    public DirectoryInfo d;
 
     private void Start()
     {
-        content = GameObject.Find("Content");
-        
         if (Directory.Exists(Application.persistentDataPath))
         {
-            string levelData = Application.dataPath + "/levelData/";
-            DirectoryInfo d = new DirectoryInfo(levelData);
+            levelData = Application.dataPath + "/levelData/";
+            d = new DirectoryInfo(levelData);
 
-            Debug.Log("Exists");
             foreach (var file in d.GetFiles("*.json"))
             {
                 levelData = levelData.Replace("/", "\\");
@@ -27,18 +27,21 @@ public class LevelScrollView : MonoBehaviour
                 nameOnly = nameOnly.Replace(levelData, "");
                 nameOnly = nameOnly.Replace(".json", "");
                 allLevels.Add(nameOnly);
-                GameObject newLevelName = Instantiate(levelNameButton, content.transform);
+                GameObject newLevelName = Instantiate(levelNameButton, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0), content.transform);
                 newLevelName.SetActive(true);
                 GameObject Child0 = newLevelName.transform.GetChild(0).gameObject;
                 Child0.GetComponent<Text>().text = nameOnly;
+                newLevelName.name = nameOnly;
                 
             }
             
         }
     }
 
-    public void InstantiateLevelName(GameObject Button)
+    public void InstantiateLevelName()
     {
-        
+        string buttonClicked = EventSystem.current.currentSelectedGameObject.name;
+        Debug.Log(buttonClicked);
+        string file = levelData + buttonClicked + ".json";
     }
 }
