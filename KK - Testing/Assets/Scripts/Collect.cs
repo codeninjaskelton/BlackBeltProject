@@ -13,11 +13,11 @@ public class Collect : MonoBehaviour
     private void Start()
     {
         collectables = GameObject.Find("GameManager").GetComponent<Collectables>();
-        collectables.collectableNumber = collectables.collectables.Length;
+        collectables.collectableNumber = collectables.collectables.Count;
         portal = collectables.GetPortal();
         ui = GameObject.Find("GameManager").GetComponent<UI>();
         
-        if (gameObject == collectables.collectables[collectables.collectables.Length - 1])
+        if (gameObject == collectables.collectables[collectables.collectables.Count - 1])
         {
             lastCollectable = true;
             Debug.Log("last collectable: " + gameObject.name);
@@ -43,7 +43,7 @@ public class Collect : MonoBehaviour
 
             if (!lastCollectable)
             {
-                collectables.collectables[collectables.collectables.Length - collectables.collectableNumber].SetActive(true);
+                collectables.collectables[collectables.collectables.Count - collectables.collectableNumber].SetActive(true);
 
             }
 
@@ -53,6 +53,6 @@ public class Collect : MonoBehaviour
     void PortalOn()
     {
         portal.SetActive(true);
-        collectables.collectables = new GameObject[0];
+        collectables.collectables = new List<GameObject>(0);
     }
 }

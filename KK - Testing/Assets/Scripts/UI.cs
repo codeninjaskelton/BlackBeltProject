@@ -105,7 +105,7 @@ public class UI : MonoBehaviour
         }
         else
         {
-            target = collectables.collectables[collectables.collectables.Length - collectables.collectableNumber];
+            target = collectables.collectables[collectables.collectables.Count - collectables.collectableNumber];
         }
         
 

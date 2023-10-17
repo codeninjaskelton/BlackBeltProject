@@ -12,7 +12,7 @@ public class CinemachineZoom : MonoBehaviour
     public float duration;
     public GameObject bean;
     public GameObject portal;
-    public GameObject[] collectables;
+    public List<GameObject> collectables = new List<GameObject>();
     public Collectables collectablesScript;
     public Timer timer;
     public Pause pause;
@@ -35,7 +35,7 @@ public class CinemachineZoom : MonoBehaviour
         ogtimescale = Time.timeScale;
         bean.GetComponent<Rigidbody>().isKinematic = true;
         portal.SetActive(true);
-        for (int i = 0; i < collectables.Length; i++)
+        for (int i = 0; i < collectables.Count; i++)
         {
             collectables[i].SetActive(true);
         }
@@ -50,7 +50,7 @@ public class CinemachineZoom : MonoBehaviour
         }
     }
 
-    public IEnumerator EndZoom(GameObject player, GameObject exit, GameObject[] items)
+    public IEnumerator EndZoom(GameObject player, GameObject exit, List<GameObject> items)
     {
         gameStarted = false;
         yield return new WaitForSeconds(3);
@@ -63,7 +63,7 @@ public class CinemachineZoom : MonoBehaviour
         {
             portal.SetActive(false);
         }
-        if (items.Length > 0)
+        if (items.Count > 0)
         {
             collectablesScript.Begin();
         }

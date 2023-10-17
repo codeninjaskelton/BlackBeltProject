@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class LevelScrollView : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class LevelScrollView : MonoBehaviour
     public GameObject content;
     public string levelData;
     public DirectoryInfo d;
+    public static string levelLoadName;
 
     private void Start()
     {
@@ -43,5 +45,7 @@ public class LevelScrollView : MonoBehaviour
         string buttonClicked = EventSystem.current.currentSelectedGameObject.name;
         Debug.Log(buttonClicked);
         string file = levelData + buttonClicked + ".json";
+        levelLoadName = file;
+        SceneManager.LoadScene("TestingLoad");
     }
 }

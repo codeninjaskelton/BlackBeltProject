@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour
 {
-    public GameObject[] collectables;
+    public List<GameObject> collectables = new List<GameObject>();
     public GameObject portal;
     public int collectableNumber;
 
@@ -17,7 +17,7 @@ public class Collectables : MonoBehaviour
     public void Begin()
     {
         portal.SetActive(false);
-        for (var i = collectables.Length; i > 1; i--)
+        for (var i = collectables.Count; i > 1; i--)
         {
             collectables[i - 1].SetActive(false);
         }
