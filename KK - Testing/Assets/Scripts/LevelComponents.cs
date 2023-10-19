@@ -17,7 +17,10 @@ public class LevelComponents : MonoBehaviour
     {
         ui = gameObject.GetComponent<UI>();
         pause = gameObject.GetComponent<Pause>();
-        player = GameObject.Find("Bean");
+        if (GameObject.Find("Bean"))
+        {
+            player = GameObject.Find("Bean");
+        }
         spawnScript = GameObject.Find("GameManager").GetComponent<Spawn>();
         moonGravity = GameSettings.moon;
         Time.timeScale = 1;

@@ -22,8 +22,14 @@ public class CinemachineZoom : MonoBehaviour
 
     private void Start()
     {
-        bean = GameObject.Find("Bean");
-        portal = GameObject.Find("Portal");
+        if (GameObject.Find("Bean"))
+        {
+            bean = GameObject.Find("Bean");
+        }
+        if (GameObject.Find("Portal"))
+        {
+            portal = GameObject.Find("Portal");
+        }
         collectables = GameObject.Find("GameManager").GetComponent<Collectables>().collectables;
         collectablesScript = GameObject.Find("GameManager").GetComponent<Collectables>();
         timer = GameObject.Find("GameManager").GetComponent<Timer>();
@@ -33,9 +39,14 @@ public class CinemachineZoom : MonoBehaviour
         cm.m_Lens.OrthographicSize = startZoom;
         cm.m_Follow = boundary.transform;
         ogtimescale = Time.timeScale;
-        bean.GetComponent<Rigidbody>().isKinematic = true;
-        portal.SetActive(true);
-        for (int i = 0; i < collectables.Count; i++)
+        if (bean)
+        {
+            bean.GetComponent<Rigidbody>().isKinematic = true;
+        }
+        if (portal)
+        {
+            portal.SetActive(true);
+        }        for (int i = 0; i < collectables.Count; i++)
         {
             collectables[i].SetActive(true);
         }
@@ -54,10 +65,11 @@ public class CinemachineZoom : MonoBehaviour
     {
         gameStarted = false;
         yield return new WaitForSeconds(3);
-        cm.m_Follow = player.transform;
         if (player)
         {
+            cm.m_Follow = player.transform;
             bean.GetComponent<Rigidbody>().isKinematic = false;
+
         }
         if (exit)
         {

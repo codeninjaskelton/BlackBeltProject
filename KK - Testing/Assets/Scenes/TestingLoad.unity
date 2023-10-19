@@ -591,7 +591,7 @@ MonoBehaviour:
   - {fileID: 4769886630428492368, guid: be6d6c7b45e49984194c697831c864bd, type: 3}
   - {fileID: 5460126941147039245, guid: edb53243f4f009c49bb065b62d722f82, type: 3}
   - {fileID: 6536616048727222892, guid: 30c579a15b78a924a96ab948c41f96b7, type: 3}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1787047673723940404}
 --- !u!1 &930848553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,7 +1587,11 @@ MonoBehaviour:
   leftWall: {fileID: 800340904}
   rightWall: {fileID: 1965405034}
   backdrop: {fileID: 1625963557}
-  boundaries: []
+  boundaries:
+  - 0
+  - 0
+  - 0
+  - 0
   originalPos:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}

@@ -11,9 +11,9 @@ public class Boundaries : MonoBehaviour
     public GameObject leftWall;
     public GameObject rightWall;
     public GameObject backdrop;
-    public float[] boundaries;
-    public Vector3[] originalPos = new Vector3[5];
-    public Vector3[] originalScale = new Vector3[5];
+    public List<float> boundaries = new List<float>(4);
+    public List<Vector3> originalPos = new List<Vector3>(5);
+    public List<Vector3> originalScale = new List<Vector3>(5);
     public float boundaryScale = 1;
 
     private void Start()

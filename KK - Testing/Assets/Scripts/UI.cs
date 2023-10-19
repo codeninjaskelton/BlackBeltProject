@@ -47,7 +47,10 @@ public class UI : MonoBehaviour
         {
             arrowChildren[i].enabled = false;
         }
-        bean = GameObject.FindGameObjectWithTag("Player");
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            bean = GameObject.FindGameObjectWithTag("Player");
+        }
         collectables = GetComponent<Collectables>();
         LevelNumber();
     }
@@ -108,9 +111,13 @@ public class UI : MonoBehaviour
             target = collectables.collectables[collectables.collectables.Count - collectables.collectableNumber];
         }
         
-
+        if (bean) {
+            arrow.transform.up = target.transform.position - bean.transform.position;
+        }
+        else {
+            arrow.transform.up = target.transform.position;
+        }
         
-        arrow.transform.up = target.transform.position - bean.transform.position;
         
     }
 

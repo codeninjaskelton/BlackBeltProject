@@ -12,7 +12,6 @@ public class LevelLoad : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = gameObject;
         
         CreateEditor();
         LoadLevel();
@@ -55,6 +54,7 @@ public class LevelLoad : MonoBehaviour
                     break;
                 case EditorObject.ObjectType.Star:
                     pobject = Instantiate(editorItems[1], level.editorObjects[i].pos, level.editorObjects[i].rot);
+                    gameManager.GetComponent<Collectables>().collectables.Add(pobject);
                     placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Bean:
