@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
             {
                 gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-0.1f, 0, 0), ForceMode.Impulse);
             }
+
         }
         else
         {

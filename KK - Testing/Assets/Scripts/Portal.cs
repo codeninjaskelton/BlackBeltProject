@@ -15,7 +15,16 @@ public class Portal : MonoBehaviour
             {
                 PlayerPrefs.SetFloat("LastV", PlayerPrefs.GetFloat("time"));
             }
-            SceneManager.LoadScene(nextScene);
+            
+            if (nextScene == null)
+            {
+                SceneManager.LoadScene("StartScreen");
+            }
+            else
+            {
+                SceneManager.LoadScene(nextScene);
+            }
+            
         }
     }
 

@@ -6,7 +6,7 @@ using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
-    private LevelEditor level;
+    public static LevelEditor level;
     public InputField levelNameSave;
     public InputField levelNameLoad;
     public GameObject[] editorItems;
@@ -26,13 +26,33 @@ public class SaveManager : MonoBehaviour
 
     public void SaveLevel()
     {
+        bool bean = false;
+        bool portal = false;
+
         EditorObject[] foundObjects = FindObjectsOfType<EditorObject>();
         foreach (EditorObject obj in foundObjects)
         {
             level.editorObjects.Add(obj.data);
         }
 
+        for (int i = 0; i < foundObjects.Length; i++)
+        {
+            if (foundObjects[i] == editorItems[2])
+            {
+                bean = true;
+            }
+            if (foundObjects[i] == editorItems[3])
+            {
+                portal = true;
+            }
+        }
+        if (bean && portal)
+        {
+            level.isPlayable = true;
+        }
+
         level.boundarySize = FindObjectOfType<Boundaries>().boundaryScale;
+
         string json = JsonUtility.ToJson(level);
         string folder = Application.dataPath + "/LevelData/";
         string levelFile = "";

@@ -8,4 +8,5 @@ public class LevelEditor
 {
     public List<EditorObject.Data> editorObjects;
     public float boundarySize;
+    public bool isPlayable;
 }

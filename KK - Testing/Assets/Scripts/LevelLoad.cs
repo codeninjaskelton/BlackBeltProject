@@ -42,7 +42,7 @@ public class LevelLoad : MonoBehaviour
     {
         Debug.Log("Bean");
         FindObjectOfType<Boundaries>().boundaryScale = level.boundarySize;
-        List<GameObject> placed = new List<GameObject>();
+        //List<GameObject> placed = new List<GameObject>();
         for (int i = 0; i < level.editorObjects.Count; i++)
         {
             GameObject pobject;
@@ -50,12 +50,12 @@ public class LevelLoad : MonoBehaviour
             {
                 case EditorObject.ObjectType.Block:
                     pobject = Instantiate(editorItems[0], level.editorObjects[i].pos, level.editorObjects[i].rot);
-                    placed.Add(pobject);
+                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Star:
                     pobject = Instantiate(editorItems[1], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     gameManager.GetComponent<Collectables>().collectables.Add(pobject);
-                    placed.Add(pobject);
+                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Bean:
                 
@@ -63,20 +63,20 @@ public class LevelLoad : MonoBehaviour
                     gameManager.GetComponent<UI>().bean = pobject;
                     gameManager.GetComponent<LevelComponents>().player = pobject;
                     gameManager.GetComponent<CinemachineZoom>().bean = pobject;
-                    placed.Add(pobject);
+                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Portal:
                     pobject = Instantiate(editorItems[3], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     gameManager.GetComponent<CinemachineZoom>().portal = pobject;
-                    placed.Add(pobject);
+                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Wind:
                     pobject = Instantiate(editorItems[4], level.editorObjects[i].pos, level.editorObjects[i].rot);
-                    placed.Add(pobject);
+                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Enemy:
                     pobject = Instantiate(editorItems[5], level.editorObjects[i].pos, level.editorObjects[i].rot);
-                    placed.Add(pobject);
+                    //placed.Add(pobject);
                     break;
                 default:
                     break;

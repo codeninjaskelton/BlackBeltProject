@@ -34,7 +34,15 @@ public class LevelScrollView : MonoBehaviour
                 GameObject Child0 = newLevelName.transform.GetChild(0).gameObject;
                 Child0.GetComponent<Text>().text = nameOnly;
                 newLevelName.name = nameOnly;
-                
+                if (SaveManager.level.isPlayable)
+                {
+                    newLevelName.GetComponent<Text>().color = Color.green;
+                }
+                else
+                {
+                    newLevelName.GetComponent<Text>().color = Color.red;
+                }
+
             }
             
         }
