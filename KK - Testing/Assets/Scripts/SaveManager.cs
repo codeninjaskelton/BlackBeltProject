@@ -26,6 +26,7 @@ public class SaveManager : MonoBehaviour
 
     public void SaveLevel()
     {
+        Debug.Log("Save");
         bool bean = false;
         bool portal = false;
 

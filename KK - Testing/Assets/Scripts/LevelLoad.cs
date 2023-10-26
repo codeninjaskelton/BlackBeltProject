@@ -40,7 +40,7 @@ public class LevelLoad : MonoBehaviour
 
     public void CreateFromFile()
     {
-        Debug.Log("Bean");
+        Debug.Log("load");
         FindObjectOfType<Boundaries>().boundaryScale = level.boundarySize;
         //List<GameObject> placed = new List<GameObject>();
         for (int i = 0; i < level.editorObjects.Count; i++)
