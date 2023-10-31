@@ -26,7 +26,7 @@ public class SaveManager : MonoBehaviour
 
     public void SaveLevel()
     {
-        Debug.Log("Save");
+        CreateEditor();
         bool bean = false;
         bool portal = false;
 
@@ -35,6 +35,8 @@ public class SaveManager : MonoBehaviour
         {
             level.editorObjects.Add(obj.data);
         }
+
+        Debug.Log(foundObjects.Length);
 
         for (int i = 0; i < foundObjects.Length; i++)
         {

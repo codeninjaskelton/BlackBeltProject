@@ -46,7 +46,8 @@ public class Collect : MonoBehaviour
                 collectables.collectables[collectables.collectables.Count - collectables.collectableNumber].SetActive(true);
 
             }
-
+            Debug.Log(collectables.collectables.Count);
+            Debug.Log(collectables.collectableNumber);
         }
     }
     

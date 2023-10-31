@@ -55,6 +55,7 @@ public class LevelLoad : MonoBehaviour
                 case EditorObject.ObjectType.Star:
                     pobject = Instantiate(editorItems[1], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     gameManager.GetComponent<Collectables>().collectables.Add(pobject);
+                    Debug.Log("Star");
                     //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Bean:
@@ -68,6 +69,8 @@ public class LevelLoad : MonoBehaviour
                 case EditorObject.ObjectType.Portal:
                     pobject = Instantiate(editorItems[3], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     gameManager.GetComponent<CinemachineZoom>().portal = pobject;
+                    gameManager.GetComponent<Collectables>().portal = pobject;
+                    Debug.Log("portal");
                     //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Wind:

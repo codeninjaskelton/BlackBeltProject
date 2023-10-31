@@ -22,6 +22,7 @@ public class Collectables : MonoBehaviour
         {
             portal.SetActive(false);
         }
+        
         for (var i = collectables.Count; i > 1; i--)
         {
             collectables[i - 1].SetActive(false);
