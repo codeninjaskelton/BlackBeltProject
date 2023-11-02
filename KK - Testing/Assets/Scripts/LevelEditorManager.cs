@@ -11,9 +11,11 @@ public class LevelEditorManager : MonoBehaviour
     public GameObject hobject;
     public LayerMask layermaskname;
 
-    public InputField transX;
-    public InputField transY;
+    public InputField posX;
+    public InputField posY;
     public InputField rotZ;
+    public InputField scaleX;
+    public InputField scaleY;
 
     public Vector3 mouseStart;
 
@@ -22,6 +24,8 @@ public class LevelEditorManager : MonoBehaviour
     public string vX;
     public string vY;
     public string vZ;
+    public string vSX;
+    public string vSY;
 
     private void Start()
     {
@@ -32,19 +36,19 @@ public class LevelEditorManager : MonoBehaviour
     {
         if (hobject != null)
         {
-            if (transX.text == vX)
+            if (posX.text == vX)
             {
-                transX.text = hobject.transform.position.x.ToString();
+                posX.text = hobject.transform.position.x.ToString();
             }
-            if (transY.text == vY)
+            if (posY.text == vY)
             {
-                transY.text = hobject.transform.position.y.ToString();
+                posY.text = hobject.transform.position.y.ToString();
             }
-            if (transX.text == "")
+            if (posX.text == "")
             {
                 hobject.transform.position = new Vector3(0, hobject.transform.position.y, hobject.transform.position.z);
             }
-            if (transY.text == "")
+            if (posY.text == "")
             {
                 hobject.transform.position = new Vector3(hobject.transform.position.x, 0, hobject.transform.position.z);
             }
@@ -83,9 +87,11 @@ public class LevelEditorManager : MonoBehaviour
 
             if (hobject)
             {
-                string X = transX.text;
-                string Y = transY.text;
+                string X = posX.text;
+                string Y = posY.text;
                 string Z = rotZ.text;
+                string sX = scaleX.text;
+                string sY = scaleY.text;
 
                 if (float.TryParse(X, out float retX))
                 {
@@ -106,14 +112,30 @@ public class LevelEditorManager : MonoBehaviour
                         hobject.transform.rotation = Quaternion.Euler(0, 0, 0);
                     }
                 }
+                if (scaleX.text == vSX)
+                {
+                    if (scaleX.text == "")
+                    {
+                        hobject.transform.localScale = new Vector3(0, hobject.transform.localScale.y, hobject.transform.localScale.z);
+                    }
+                }
+                if (scaleX.text == vSY)
+                {
+                    if (scaleY.text == "")
+                    {
+                        hobject.transform.localScale = new Vector3(hobject.transform.localScale.x, 0, hobject.transform.localScale.z);
+                    }
+                }
             }
             
 
         }
 
-        vX = transX.text;
-        vY = transY.text;
+        vX = posX.text;
+        vY = posY.text;
         vZ = rotZ.text;
+        vSX = scaleX.text;
+        vSY = scaleY.text;
     }
 
     public IEnumerator MouseHold()

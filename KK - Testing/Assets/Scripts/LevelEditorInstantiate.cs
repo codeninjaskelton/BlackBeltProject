@@ -15,13 +15,18 @@ public class LevelEditorInstantiate : MonoBehaviour
 
     [Header("Position")]
     public Vector2 transPos;
-    public InputField transX;
-    public InputField transY;
+    public InputField posX;
+    public InputField posY;
 
     [Header("Rotation")]
     public float itemRotation = 0;
     public float rotationSpeed = 100;
     public InputField rotZ;
+
+    [Header("Scale")]
+    public Vector2 transScale;
+    public InputField scaleX;
+    public InputField scaleY;
 
     [Header("Mouse")]
     public bool canPlace;
@@ -55,11 +60,11 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         if (canPlace)
         {
-            if (float.TryParse(transX.text.ToString(), out float retX))
+            if (float.TryParse(posX.text.ToString(), out float retX))
             {
                 transPos.x = retX;
             }
-            if (float.TryParse(transY.text.ToString(), out float retY))
+            if (float.TryParse(posY.text.ToString(), out float retY))
             {
                 transPos.y = retY;
             }
@@ -70,6 +75,14 @@ public class LevelEditorInstantiate : MonoBehaviour
             if (rotZ.text == "")
             {
                 itemRotation = 0;
+            }
+            if (float.TryParse(scaleX.text.ToString(), out float retSX))
+            {
+                transScale.x = retSX;
+            }
+            if (float.TryParse(scaleY.text.ToString(), out float retSY))
+            {
+                transScale.x = retSY;
             }
         }
         
@@ -196,8 +209,8 @@ public class LevelEditorInstantiate : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 
-                transX.DeactivateInputField();
-                transY.DeactivateInputField();
+                posX.DeactivateInputField();
+                posY.DeactivateInputField();
                 rotZ.DeactivateInputField();
                 
                 if (placed.Count < blockLimit)

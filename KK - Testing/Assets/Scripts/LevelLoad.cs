@@ -12,7 +12,7 @@ public class LevelLoad : MonoBehaviour
 
     private void Awake()
     {
-        
+        PlayerPrefs.SetInt("isTimed", 0);
         CreateEditor();
         LoadLevel();
     }
@@ -70,6 +70,7 @@ public class LevelLoad : MonoBehaviour
                     pobject = Instantiate(editorItems[3], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     gameManager.GetComponent<CinemachineZoom>().portal = pobject;
                     gameManager.GetComponent<Collectables>().portal = pobject;
+                    pobject.GetComponent<Portal>().nextScene = "StartScreen";
                     Debug.Log("portal");
                     //placed.Add(pobject);
                     break;

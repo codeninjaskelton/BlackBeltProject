@@ -10,7 +10,7 @@ public class Collectables : MonoBehaviour
 
     private void Start()
     {
-        if (portal = GameObject.Find("Portal"))
+        if (GameObject.Find("Portal"))
         {
             portal = GameObject.Find("Portal");
         }
