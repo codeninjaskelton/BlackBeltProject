@@ -2089,8 +2089,8 @@ MonoBehaviour:
   rotationSpeed: 25
   rotZ: {fileID: 1949226502}
   transScale: {x: 0, y: 0}
-  scaleX: {fileID: 0}
-  scaleY: {fileID: 0}
+  scaleX: {fileID: 65643960}
+  scaleY: {fileID: 1473346388}
   canPlace: 0
   followingMouse: 1
   boundaries: {fileID: 3085589860163825095}

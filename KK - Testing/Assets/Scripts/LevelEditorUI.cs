@@ -36,6 +36,8 @@ public class LevelEditorUI : MonoBehaviour
 
     private void Update()
     {
+        
+
         blockLimitText.text = levelEditorInstantiate.placed.Count + "/" + levelEditorInstantiate.blockLimit;
 
         if (toggleSave.isOn)

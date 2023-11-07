@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class LevelEditorManager : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class LevelEditorManager : MonoBehaviour
     public string vZ;
     public string vSX;
     public string vSY;
+
+    public bool sceneSelected;
 
     private void Start()
     {
@@ -56,7 +59,7 @@ public class LevelEditorManager : MonoBehaviour
         
         if (!levelEditorInstantiate.canPlace)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && levelEditorInstantiate.isInBoundaries)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && levelEditorInstantiate.isInBoundaries && sceneSelected)
             {
                 hobject = null;
                 it++;
@@ -64,25 +67,46 @@ public class LevelEditorManager : MonoBehaviour
                 if (Physics.Raycast(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, -10), Vector3.forward, out hit, Mathf.Infinity, layermaskname))
                 {
                     hobject = hit.transform.gameObject;
-                    rotZ.text = hobject.transform.rotation.eulerAngles.z.ToString();
                     StartCoroutine(levelEditorColorManager.Switch2Rock2(hobject, it));
                     mouseStart = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - hobject.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - hobject.transform.position.y, 0);
+                    posX.text = hobject.transform.position.x.ToString();
+                    posY.text = hobject.transform.position.y.ToString();
+                    rotZ.text = hobject.transform.rotation.eulerAngles.z.ToString();
+                    scaleX.text = hobject.transform.localScale.x.ToString();
+                    scaleY.text = hobject.transform.localScale.y.ToString();
                     StartCoroutine(MouseHold());
                 }
 
             }
 
-            if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 if (levelEditorInstantiate.isInBoundaries)
                 {
-                    List<GameObject> placed = levelEditorInstantiate.placed;
-                    if (placed.Contains(hobject))
-                    {
-                        placed.Remove(hobject);
-                        Destroy(hobject);
-                    }
+                    sceneSelected = true;
                 }
+                else
+                {
+                    sceneSelected = false;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete))
+            {
+                //if (levelEditorInstantiate.isInBoundaries)
+                //{
+                    if (sceneSelected)
+                    {
+
+                    
+                        List<GameObject> placed = levelEditorInstantiate.placed;
+                        if (placed.Contains(hobject))
+                        {
+                            placed.Remove(hobject);
+                            Destroy(hobject);
+                        }
+                    }
+                //}
             }
 
             if (hobject)
@@ -103,7 +127,7 @@ public class LevelEditorManager : MonoBehaviour
                 }
                 if (float.TryParse(Z, out float retZ))
                 {
-                    hobject.transform.rotation = Quaternion.Euler(hobject.transform.position.x, hobject.transform.position.y, retZ);
+                    hobject.transform.rotation = Quaternion.Euler(hobject.transform.rotation.x, hobject.transform.rotation.y, retZ);
                 }
                 if (rotZ.text == vZ)
                 {
@@ -116,14 +140,22 @@ public class LevelEditorManager : MonoBehaviour
                 {
                     if (scaleX.text == "")
                     {
-                        hobject.transform.localScale = new Vector3(0, hobject.transform.localScale.y, hobject.transform.localScale.z);
+                        hobject.transform.localScale = new Vector3(0.1f, hobject.transform.localScale.y, hobject.transform.localScale.z);
+                    }
+                    else if (float.TryParse(sX, out float retSX))
+                    {
+                        hobject.transform.localScale = new Vector3(retSX, hobject.transform.localScale.y,hobject.transform.localScale.z);
                     }
                 }
                 if (scaleX.text == vSY)
                 {
                     if (scaleY.text == "")
                     {
-                        hobject.transform.localScale = new Vector3(hobject.transform.localScale.x, 0, hobject.transform.localScale.z);
+                        hobject.transform.localScale = new Vector3(hobject.transform.localScale.x, 0.1f, hobject.transform.localScale.z);
+                    }
+                    else if (float.TryParse(sY, out float retSY))
+                    {
+                        hobject.transform.localScale = new Vector3(hobject.transform.localScale.x, retSY, hobject.transform.localScale.z);
                     }
                 }
             }
@@ -141,7 +173,7 @@ public class LevelEditorManager : MonoBehaviour
     public IEnumerator MouseHold()
     {
         yield return new WaitForSeconds(0.1f);
-        
+
         while (Input.GetKey(KeyCode.Mouse0))
         {
             hobject.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0) - mouseStart;
