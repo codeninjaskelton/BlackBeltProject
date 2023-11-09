@@ -147,7 +147,7 @@ public class LevelEditorManager : MonoBehaviour
                         hobject.transform.localScale = new Vector3(retSX, hobject.transform.localScale.y,hobject.transform.localScale.z);
                     }
                 }
-                if (scaleX.text == vSY)
+                if (scaleY.text == vSY)
                 {
                     if (scaleY.text == "")
                     {
