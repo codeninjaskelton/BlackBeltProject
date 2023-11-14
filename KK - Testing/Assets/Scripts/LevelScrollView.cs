@@ -17,9 +17,9 @@ public class LevelScrollView : MonoBehaviour
 
     private void Start()
     {
-        if (Directory.Exists(Application.persistentDataPath))
-        {
-            levelData = Application.dataPath + "/levelData/";
+        //if (Directory.Exists(Application.persistentDataPath))
+        
+            levelData = Application.persistentDataPath + "/levelData/";
             d = new DirectoryInfo(levelData);
 
             foreach (var file in d.GetFiles("*.json"))
@@ -45,7 +45,7 @@ public class LevelScrollView : MonoBehaviour
 
             }
             
-        }
+        
     }
 
     public void InstantiateLevelName()
