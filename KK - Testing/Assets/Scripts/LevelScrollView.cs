@@ -20,7 +20,7 @@ public class LevelScrollView : MonoBehaviour
     private void Start()
     {
         p.text = Application.persistentDataPath;
-        if (Directory.Exists(Application.persistentDataPath + "/levelData/"))
+        if (Directory.Exists(Application.persistentDataPath + "/LevelData/"))
         {
             levelData = Application.persistentDataPath + "/LevelData/";
             d = new DirectoryInfo(levelData);
@@ -28,7 +28,7 @@ public class LevelScrollView : MonoBehaviour
             foreach (var file in d.GetFiles("*.json"))
             {
                 Debug.Log("json " + file.FullName);
-                levelData = levelData.Replace("/", "\\");
+                //levelData = levelData.Replace("/", "\\");
                 string nameOnly = file.ToString();
                 nameOnly = nameOnly.Replace(levelData, "");
                 nameOnly = nameOnly.Replace(".json", "");
