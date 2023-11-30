@@ -10,21 +10,22 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         particles = gameObject.GetComponent<Particles>();
+        //Application.targetFrameRate = 100;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Time.timeScale != 0)
         {
             pause = false;
             if (Input.GetKey(ControlScript.Right))
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.1f, 0, 0), ForceMode.Impulse);
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(30f, 0, 0), ForceMode.Force);
             }
             if (Input.GetKey(ControlScript.Left))
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-0.1f, 0, 0), ForceMode.Impulse);
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-30f, 0, 0), ForceMode.Force);
             }
 
         }
