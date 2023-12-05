@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelComponents : MonoBehaviour
 {
     public UI ui;
-    public Pause pause;
     public string[] levelComponents;
     public GameObject player;
     public Spawn spawnScript;
@@ -16,7 +15,6 @@ public class LevelComponents : MonoBehaviour
     private void Start()
     {
         ui = gameObject.GetComponent<UI>();
-        pause = gameObject.GetComponent<Pause>();
         if (GameObject.Find("Bean"))
         {
             player = GameObject.Find("Bean");
@@ -71,7 +69,7 @@ public class LevelComponents : MonoBehaviour
             }
             if (levelComponents[i] == "enrico")
             {
-                if (!pause.isPaused)
+                if (!Pause.isPaused)
                 {
                     if (Input.GetKeyDown(KeyCode.Q))
                     {

@@ -12,7 +12,6 @@ public class UI : MonoBehaviour
     private string levelType;
     public GameObject mainMenuButton;
     public GameObject restartLevelButton;
-    public Pause pause;
     public bool invis = false;
     public GameObject rock;
     public Image rockImage;
@@ -33,7 +32,6 @@ public class UI : MonoBehaviour
     private void Start()
     {
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
-        pause = GameObject.Find("GameManager").GetComponent<Pause>();
         mainMenuButton = GameObject.Find("MainMenuButton");
         restartLevelButton = GameObject.Find("RestartLevelButton");
         levelNumber = SceneManager.GetActiveScene().name;
@@ -66,7 +64,7 @@ public class UI : MonoBehaviour
         {
             if (CinemachineZoom.gameStarted)
             {
-                if (pause.isPaused)
+                if (Pause.isPaused)
                 {
                     mainMenuButton.SetActive(true);
                     restartLevelButton.SetActive(true);

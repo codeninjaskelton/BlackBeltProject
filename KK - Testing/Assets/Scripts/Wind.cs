@@ -29,7 +29,7 @@ public class Wind : MonoBehaviour
         ma.startSpeed = forceApplied * 5;
 
         Vector3 dif = top.transform.position - bottom.transform.position;
-        if (PlayerMove.pause == false)
+        if (Pause.isPaused == false)
         {
             if (isColliding)
             {

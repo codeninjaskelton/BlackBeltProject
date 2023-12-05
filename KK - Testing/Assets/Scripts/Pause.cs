@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    public bool isPaused = false;
+    public static bool isPaused;
     public CinemachineZoom cinemachineZoom;
     public float time;
+    public GameObject bean;
+    public Vector3 beanV;
 
     private void Start()
     {
         cinemachineZoom = GameObject.Find("GameManager").GetComponent<CinemachineZoom>();
+        bean = GameObject.Find("Bean");
     }
 
     private void Update()
@@ -30,13 +33,16 @@ public class Pause : MonoBehaviour
         
         if (isPaused == false)
         {
-            cinemachineZoom.Pause();
+            cinemachineZoom.CinePause();
             isPaused = true;
+            beanV = bean.GetComponent<Rigidbody>().velocity;
+            bean.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
         else
         {
             StartCoroutine(cinemachineZoom.PauseZoom(cinemachineZoom.bean, null, null));
             isPaused = false;
+            bean.GetComponent<Rigidbody>().velocity = beanV;
         }
         
     }

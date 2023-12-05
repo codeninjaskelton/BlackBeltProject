@@ -7,13 +7,11 @@ public class Timer : MonoBehaviour
 {
     public float time;
     private GameObject timeText;
-    private Pause pauseScript;
     public bool canTime = false;
 
     private void Start()
     {
         timeText = GameObject.Find("TimeText");
-        pauseScript = GameObject.Find("GameManager").GetComponent<Pause>();
         if (PlayerPrefs.GetInt("isTimed") == 1)
         {
             time = PlayerPrefs.GetFloat("time");
@@ -22,7 +20,7 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("isTimed") == 1 && pauseScript.isPaused == false)
+        if (PlayerPrefs.GetInt("isTimed") == 1 && Pause.isPaused == false)
         {
             timeText.SetActive(true);
             timeText.GetComponent<Text>().text = time.ToString();

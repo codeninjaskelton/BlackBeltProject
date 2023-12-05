@@ -27,7 +27,7 @@ public class Block : MonoBehaviour
     void Update()
     {
         
-        if (PlayerMove.pause == false)
+        if (Pause.isPaused == false)
         {
             gameObject.transform.Rotate(new Vector3(rotateX / 100, rotateY / 100, rotateZ / 100));
             if (moveInSeconds == true)

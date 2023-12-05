@@ -15,7 +15,6 @@ public class CinemachineZoom : MonoBehaviour
     public List<GameObject> collectables = new List<GameObject>();
     public Collectables collectablesScript;
     public Timer timer;
-    public Pause pause;
     public GameObject boundary;
     public float ogtimescale;
     public static bool gameStarted;
@@ -33,7 +32,6 @@ public class CinemachineZoom : MonoBehaviour
         collectables = GameObject.Find("GameManager").GetComponent<Collectables>().collectables;
         collectablesScript = GameObject.Find("GameManager").GetComponent<Collectables>();
         timer = GameObject.Find("GameManager").GetComponent<Timer>();
-        pause = GameObject.Find("GameManager").GetComponent<Pause>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         boundary = GameObject.Find("Boundary");
         cm.m_Lens.OrthographicSize = startZoom;
@@ -55,7 +53,7 @@ public class CinemachineZoom : MonoBehaviour
 
     private void Update()
     {
-        if (!pause.isPaused)
+        if (!Pause.isPaused)
         {
             ogtimescale = Time.timeScale;
         }
@@ -92,7 +90,7 @@ public class CinemachineZoom : MonoBehaviour
         gameStarted = true;
     }
     
-    public void Pause()
+    public void CinePause()
     {
         cm.m_Lens.OrthographicSize = startZoom;
         cm.m_Follow = null;
