@@ -9,7 +9,6 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         particles = gameObject.GetComponent<Particles>();
-        //Application.targetFrameRate = 100;
     }
 
     // Update is called once per frame
