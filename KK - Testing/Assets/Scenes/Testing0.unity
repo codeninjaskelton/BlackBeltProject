@@ -1340,7 +1340,7 @@ PrefabInstance:
     - target: {fileID: 4194590377018051833, guid: b3d2e9cc0aa438948b2ae578ffb062b0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8120acfbab75e1144b70da8615147705, type: 2}
+      objectReference: {fileID: 2100000, guid: f6b6eef44f93b964fae7f19e84b13d1a, type: 2}
     - target: {fileID: 4194590377018051836, guid: b3d2e9cc0aa438948b2ae578ffb062b0, type: 3}
       propertyPath: m_Name
       value: Backdrop
