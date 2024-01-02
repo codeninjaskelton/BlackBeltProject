@@ -241,12 +241,12 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, itemRotation);
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(ControlScript.Place))
         {
             canPlace = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(ControlScript.Select))
         {
             canPlace = false;
         }

@@ -22,12 +22,24 @@ public class ControlScript : MonoBehaviour
     public static KeyCode Pause = KeyCode.P;
     public GameObject pauseJect;
 
+    [Header("Place")]
+    public bool place = false;
+    public static KeyCode Place = KeyCode.V;
+    public GameObject placeJect;
+
+    [Header("Select")]
+    public bool select = false;
+    public static KeyCode Select = KeyCode.X;
+    public GameObject selectJect;
+
     // Start is called before the first frame update
     void Start()
     {
         Left = KeyCode.A;
         Right = KeyCode.D;
         Pause = KeyCode.P;
+        Place = KeyCode.V;
+        Select = KeyCode.X;
     }
 
     // Update is called once per frame
@@ -54,6 +66,17 @@ public class ControlScript : MonoBehaviour
                         Pause = kcode;
                         pause = false;
                     }
+                    if (place)
+                    {
+                        Place = kcode;
+                        place = false;
+                    }
+                    if (select)
+                    {
+                        Select = kcode;
+                        select = false;
+                    }
+                    
                     boolean = false;
 
 
@@ -64,6 +87,8 @@ public class ControlScript : MonoBehaviour
         leftJect.GetComponent<Text>().text = Left.ToString();
         rightJect.GetComponent<Text>().text = Right.ToString();
         pauseJect.GetComponent<Text>().text = Pause.ToString();
+        placeJect.GetComponent<Text>().text = Place.ToString();
+        selectJect.GetComponent<Text>().text = Select.ToString();
     }
 
     public void ResetButton()
@@ -89,5 +114,17 @@ public class ControlScript : MonoBehaviour
     {
         boolean = true;
         pause = true;
+    }
+
+    public void PlaceButton()
+    {
+        boolean = true;
+        place = true;
+    }
+
+    public void SelectButton()
+    {
+        boolean = true;
+        select = true;
     }
 }

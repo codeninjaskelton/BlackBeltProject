@@ -24,7 +24,7 @@ public class Colour : MonoBehaviour
     private void Update()
     {
         
-        time += Time.deltaTime * speed;
+        time += Time.deltaTime * speed / 10;
         EvaluatedTime = curve.Evaluate(time);
         if (PlayerPrefs.GetFloat("Rainbow") == 1)
         {

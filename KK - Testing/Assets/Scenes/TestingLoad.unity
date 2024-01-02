@@ -1330,7 +1330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
-  pause: {fileID: 0}
   levelComponents: []
   player: {fileID: 0}
   spawnScript: {fileID: 0}
@@ -1348,9 +1347,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41017f7e8430f7c4fb87b533160bf1e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPaused: 0
   cinemachineZoom: {fileID: 0}
   time: 1
+  bean: {fileID: 0}
+  beanV: {x: 0, y: 0, z: 0}
 --- !u!1 &1787047673723940404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,7 +1364,6 @@ GameObject:
   - component: {fileID: 1787047673723940405}
   - component: {fileID: 1787047673723940408}
   - component: {fileID: 904443901165617683}
-  - component: {fileID: 3425359296236432153}
   - component: {fileID: 7064037898321855320}
   - component: {fileID: 3085589860005530425}
   - component: {fileID: 7748074398118978217}
@@ -1395,7 +1394,6 @@ MonoBehaviour:
   levelNumber: 
   mainMenuButton: {fileID: 0}
   restartLevelButton: {fileID: 0}
-  pause: {fileID: 0}
   invis: 0
   rock: {fileID: 0}
   rockImage: {fileID: 0}
@@ -1500,7 +1498,6 @@ MonoBehaviour:
   collectables: []
   collectablesScript: {fileID: 0}
   timer: {fileID: 0}
-  pause: {fileID: 0}
   boundary: {fileID: 0}
   ogtimescale: 0
 --- !u!114 &3213301898223481255
@@ -1516,20 +1513,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4738493757545287077, guid: c47a6517887933849a84e28937e0c22c, type: 3}
---- !u!114 &3425359296236432153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787047673723940404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfcf6dbfeb253514cbea3a7fa50a5f6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  canTime: 0
 --- !u!114 &7064037898321855320
 MonoBehaviour:
   m_ObjectHideFlags: 0
