@@ -26,6 +26,7 @@ public class Timer : MonoBehaviour
             timeText.GetComponent<Text>().text = time.ToString();
             if (canTime)
             {
+                Debug.DebugBreak();
                 time += Time.deltaTime;
                 PlayerPrefs.SetFloat("time", time);
                 float t = Mathf.Round(time * 100) / 100;

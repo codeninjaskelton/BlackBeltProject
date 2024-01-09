@@ -15,11 +15,11 @@ public class LevelScrollView : MonoBehaviour
     public DirectoryInfo d;
     public static string levelLoadName;
 
-    public Text p;
+    //public Text p;
 
     private void Start()
     {
-        p.text = Application.persistentDataPath;
+        //p.text = Application.persistentDataPath;
         if (Directory.Exists(Application.persistentDataPath + "/LevelData/"))
         {
             levelData = Application.persistentDataPath + "/LevelData/";

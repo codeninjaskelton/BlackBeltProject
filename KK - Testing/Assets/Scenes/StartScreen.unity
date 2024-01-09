@@ -5081,7 +5081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1005492665
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7389,7 +7389,6 @@ MonoBehaviour:
   levelNameButton: {fileID: 1091747113}
   content: {fileID: 1312407000}
   levelData: 
-  p: {fileID: 1005492666}
 --- !u!1 &1540112251
 GameObject:
   m_ObjectHideFlags: 0

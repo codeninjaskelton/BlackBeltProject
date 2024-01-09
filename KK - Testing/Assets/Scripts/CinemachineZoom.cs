@@ -79,7 +79,11 @@ public class CinemachineZoom : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("isTimed") == 1)
         {
-            timer.canTime = true;
+            if (timer != null)
+            {
+                timer.canTime = true;
+            }
+            
         }
         while (cm.m_Lens.OrthographicSize > endZoom)
         {
@@ -108,7 +112,11 @@ public class CinemachineZoom : MonoBehaviour
         Time.timeScale = ogtimescale;
         if (PlayerPrefs.GetInt("isTimed") == 1)
         {
-            timer.canTime = true;
+            if (timer != null)
+            {
+                timer.canTime = true;
+            }
+            
         }
         while (cm.m_Lens.OrthographicSize > endZoom)
         {
