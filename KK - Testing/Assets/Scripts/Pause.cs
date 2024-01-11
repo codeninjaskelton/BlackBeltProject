@@ -30,20 +30,28 @@ public class Pause : MonoBehaviour
 
     void PauseGame()
     {
-        
+
         if (isPaused == false)
         {
             cinemachineZoom.CinePause();
             isPaused = true;
-            beanV = bean.GetComponent<Rigidbody>().velocity;
-            bean.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            if (bean != null)
+            {
+                beanV = bean.GetComponent<Rigidbody>().velocity;
+                bean.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+
+            
         }
         else
         {
             StartCoroutine(cinemachineZoom.PauseZoom(cinemachineZoom.bean, null, null));
             isPaused = false;
-            bean.GetComponent<Rigidbody>().velocity = beanV;
+            if (bean != null)
+            {
+                bean.GetComponent<Rigidbody>().velocity = beanV;
+            }
+
         }
-        
     }
 }

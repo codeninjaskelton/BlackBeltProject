@@ -64,13 +64,19 @@ public class LevelLoad : MonoBehaviour
                     gameManager.GetComponent<UI>().bean = pobject;
                     gameManager.GetComponent<LevelComponents>().player = pobject;
                     gameManager.GetComponent<CinemachineZoom>().bean = pobject;
+                    gameManager.GetComponent<Pause>().bean = pobject;
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        enemy.GetComponent<RockNav>().player = pobject;
+                    }
                     //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Portal:
                     pobject = Instantiate(editorItems[3], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     gameManager.GetComponent<CinemachineZoom>().portal = pobject;
                     gameManager.GetComponent<Collectables>().portal = pobject;
-                    pobject.GetComponent<Portal>().nextScene = "StartScreen";
+                    pobject.GetComponent<Portal>().nextScene = "LStartScreen";
                     Debug.Log("portal");
                     //placed.Add(pobject);
                     break;
@@ -80,6 +86,7 @@ public class LevelLoad : MonoBehaviour
                     break;
                 case EditorObject.ObjectType.Enemy:
                     pobject = Instantiate(editorItems[5], level.editorObjects[i].pos, level.editorObjects[i].rot);
+                    pobject.GetComponent<RockNav>().player = GameObject.FindGameObjectWithTag("Player");
                     //placed.Add(pobject);
                     break;
                 default:

@@ -22,6 +22,10 @@ public class Portal : MonoBehaviour
             }
             else
             {
+                if (nextScene == "LStartScreen")
+                {
+                    nextScene = "StartScreen";
+                }
                 SceneManager.LoadScene(nextScene);
             }
             

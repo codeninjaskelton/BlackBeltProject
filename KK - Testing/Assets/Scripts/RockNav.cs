@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RockNav : MonoBehaviour
 {
-    private GameObject player;
+    public GameObject player;
     public float speed;
     private GameObject rock;
     public bool touchingPlayer = false;
@@ -44,6 +44,7 @@ public class RockNav : MonoBehaviour
             else
             {
                 rock.GetComponent<Rigidbody>().isKinematic = false;
+                Debug.Log(player);
                 rock.GetComponent<Rigidbody>().AddForce((player.transform.position - rock.transform.position).normalized * speed * 0.1f);
                 if (rock.GetComponent<Rigidbody>().velocity.magnitude > speed)
                 {
