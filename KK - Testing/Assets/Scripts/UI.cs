@@ -95,7 +95,7 @@ public class UI : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(ControlScript.Hide))
         {
             Toggle(invis);
         }

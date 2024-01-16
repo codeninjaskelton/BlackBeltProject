@@ -32,6 +32,11 @@ public class ControlScript : MonoBehaviour
     public static KeyCode Select = KeyCode.X;
     public GameObject selectJect;
 
+    [Header("Hide")]
+    public bool hide = false;
+    public static KeyCode Hide = KeyCode.H;
+    public GameObject hideJect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +45,7 @@ public class ControlScript : MonoBehaviour
         Pause = KeyCode.P;
         Place = KeyCode.V;
         Select = KeyCode.X;
+        Hide = KeyCode.H;
     }
 
     // Update is called once per frame
@@ -76,7 +82,12 @@ public class ControlScript : MonoBehaviour
                         Select = kcode;
                         select = false;
                     }
-                    
+                    if (hide)
+                    {
+                        Hide = kcode;
+                        hide = false;
+                    }
+
                     boolean = false;
 
 
@@ -89,6 +100,7 @@ public class ControlScript : MonoBehaviour
         pauseJect.GetComponent<Text>().text = Pause.ToString();
         placeJect.GetComponent<Text>().text = Place.ToString();
         selectJect.GetComponent<Text>().text = Select.ToString();
+        hideJect.GetComponent<Text>().text = Hide.ToString();
     }
 
     public void ResetButton()
@@ -126,5 +138,11 @@ public class ControlScript : MonoBehaviour
     {
         boolean = true;
         select = true;
+    }
+
+    public void HideButton()
+    {
+        boolean = true;
+        hide = true;
     }
 }

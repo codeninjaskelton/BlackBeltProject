@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: 480af409f27ec7e41b57c3870800bc2b
   - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: d18fae8f403b37d4b9073ea5bd657cec
+  - enabled: 1
     path: Assets/Scenes/Bean.unity
     guid: 4ea552ba3d62f4545b74f81f9ca34302
   - enabled: 1

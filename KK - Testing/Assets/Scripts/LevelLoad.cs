@@ -87,6 +87,7 @@ public class LevelLoad : MonoBehaviour
                 case EditorObject.ObjectType.Enemy:
                     pobject = Instantiate(editorItems[5], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     pobject.GetComponent<RockNav>().player = GameObject.FindGameObjectWithTag("Player");
+                    pobject.GetComponent<RockNav>().rock = pobject.transform.GetChild(0).gameObject;
                     //placed.Add(pobject);
                     break;
                 default:

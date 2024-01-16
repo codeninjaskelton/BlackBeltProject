@@ -181,6 +181,17 @@ public class LevelEditorInstantiate : MonoBehaviour
                                         levelEditorUI.CallNewMessage("Cannot Have More Than One Bean");
                                     }
                                 }
+                                else if (currentItem == 3)
+                                {
+                                    if (GameObject.FindGameObjectWithTag("Portal") == null)
+                                    {
+                                        placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                                    }
+                                    else
+                                    {
+                                        levelEditorUI.CallNewMessage("Cannot Have More Than One Portal");
+                                    }
+                                }
                                 else
                                 {
                                     placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));

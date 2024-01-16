@@ -11,6 +11,7 @@ public class LevelComponents : MonoBehaviour
     public Spawn spawnScript;
     public bool moonGravity;
     public float timeSpeed = 1;
+    public Light dLight;
 
     private void Start()
     {
@@ -23,6 +24,8 @@ public class LevelComponents : MonoBehaviour
         moonGravity = GameSettings.moon;
         Time.timeScale = 1;
         timeSpeed = 1;
+
+        dLight = GameObject.Find("Directional Light").GetComponent<Light>();
 
         Physics.gravity = new Vector3(0, -9.81f);
         
@@ -43,6 +46,8 @@ public class LevelComponents : MonoBehaviour
             }
             
         }
+
+        dLight.intensity = PlayerPrefs.GetFloat("Brightness") * 8;
 
     }
 

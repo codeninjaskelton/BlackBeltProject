@@ -33,7 +33,7 @@ public class GameSettings : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Brightness", 1f);
         PlayerPrefs.SetFloat("TrailLength", float.PositiveInfinity);
-        brightnessSlider.GetComponent<Slider>().value = 1 / 800f;
+        brightnessSlider.GetComponent<Slider>().value = 1 / 100f;
         rainbowSlider.value = 0f;
         PlayerPrefs.SetFloat("Rainbow", 0);
         PlayerPrefs.SetFloat("RainbowColor", 0);
@@ -41,7 +41,7 @@ public class GameSettings : MonoBehaviour
 
     private void Update()
     {
-        brightnessLevel = Mathf.Round(brightnessSlider.GetComponent<Slider>().value * 800);
+        brightnessLevel = Mathf.Round(brightnessSlider.GetComponent<Slider>().value * 100);
         PlayerPrefs.SetFloat("Brightness", brightnessLevel);
         PlayerPrefs.SetFloat("TrailLength", trailLength);
         brightnessText.GetComponent<Text>().text = "Brightness " + brightnessLevel;
@@ -71,8 +71,7 @@ public class GameSettings : MonoBehaviour
 
     public void Reset()
     {
-        brightnessSlider.GetComponent<Slider>().value = 1 / 800f;
-        trailLength = float.PositiveInfinity;
+        brightnessSlider.GetComponent<Slider>().value = 1 / 100f;
         rainbowToggle.isOn = false;
         rainbowSlider.value = 0;
 

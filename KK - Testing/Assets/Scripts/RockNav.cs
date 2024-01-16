@@ -6,7 +6,7 @@ public class RockNav : MonoBehaviour
 {
     public GameObject player;
     public float speed;
-    private GameObject rock;
+    public GameObject rock;
     public bool touchingPlayer = false;
     public bool touchingRock;
     public float translateSpeed;
@@ -15,7 +15,7 @@ public class RockNav : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Bean");
+        player = GameObject.FindGameObjectWithTag("Player");
         rock = transform.GetChild(0).gameObject;
     }
 
