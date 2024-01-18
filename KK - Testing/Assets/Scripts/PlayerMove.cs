@@ -5,13 +5,12 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Particles particles;
-    // Start is called before the first frame update
+
     void Start()
     {
         particles = gameObject.GetComponent<Particles>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (Time.timeScale != 0)

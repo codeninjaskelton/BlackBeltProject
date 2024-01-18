@@ -99,7 +99,6 @@ public class CinemachineZoom : MonoBehaviour
         cm.m_Lens.OrthographicSize = startZoom;
         cm.m_Follow = null;
         cm.transform.position = new Vector3(0, 0, -10);
-        //bean.GetComponent<Rigidbody>().isKinematic = true;
         Time.timeScale = 0;
         
     }
@@ -108,7 +107,6 @@ public class CinemachineZoom : MonoBehaviour
     {
         
         cm.m_Follow = player.transform;
-        //bean.GetComponent<Rigidbody>().isKinematic = false;
         Time.timeScale = ogtimescale;
         if (PlayerPrefs.GetInt("isTimed") == 1)
         {

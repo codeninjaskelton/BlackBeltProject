@@ -10,15 +10,10 @@ public class Colour : MonoBehaviour
     Color currentColour;
     public float EvaluatedTime;
     public float speed;
-    public bool isRock;
 
     private void Start()
     {
         background = GameObject.FindGameObjectWithTag("Backdrop").GetComponent<MeshRenderer>();
-        if (isRock)
-        {
-            //background = GameObject.FindGameObjectWithTag("Player").GetComponent<MeshRenderer>();
-        }
     }
 
     private void Update()

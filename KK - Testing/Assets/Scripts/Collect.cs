@@ -33,7 +33,6 @@ public class Collect : MonoBehaviour
             c.GetComponent<AudioSource>().time = 0.10f;
             StopCoroutine(ui.Rock());
             ui.StartRock();
-            //collectables.collectables[collectables.collectables.Length - collectables.collectableNumber] = null;
             collectables.collectableNumber -= 1;
             gameObject.SetActive(false);
             if (lastCollectable == true)

@@ -9,7 +9,6 @@ public class LevelEditorColorManager : MonoBehaviour
     
     public Material rock2;
     public Material hobjectMaterial;
-    //old
     
     public IEnumerator Switch2Rock2(GameObject hobject, int it)
     {

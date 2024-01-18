@@ -93,20 +93,18 @@ public class LevelEditorManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete))
             {
-                //if (levelEditorInstantiate.isInBoundaries)
-                //{
-                    if (sceneSelected)
-                    {
 
-                    
-                        List<GameObject> placed = levelEditorInstantiate.placed;
-                        if (placed.Contains(hobject))
-                        {
-                            placed.Remove(hobject);
-                            Destroy(hobject);
-                        }
+                if (sceneSelected)
+                {
+
+
+                    List<GameObject> placed = levelEditorInstantiate.placed;
+                    if (placed.Contains(hobject))
+                    {
+                        placed.Remove(hobject);
+                        Destroy(hobject);
                     }
-                //}
+                }
             }
 
             if (hobject)

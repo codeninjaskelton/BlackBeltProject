@@ -131,7 +131,7 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         blockLimit = boundaries.boundaryScale * 20;
 
-        if (Input.mousePosition.x / Screen.width > 0.205 && Input.mousePosition.y / Screen.height > 0.18/* && Input.mousePosition.y / Screen.height < 0.88*/)
+        if (Input.mousePosition.x / Screen.width > 0.205 && Input.mousePosition.y / Screen.height > 0.18)
         {
             isInBoundaries = true;
         }
@@ -284,18 +284,6 @@ public class LevelEditorInstantiate : MonoBehaviour
         }
 
         
-
-        //string x = transX.text.ToString();
-        //Debug.Log("update");
-        //for (int i = 0; i < x.Length; i++)
-        //{
-        //    if (!int.TryParse(x.Substring(i, 1), out int ret))
-        //    {
-        //        x.Remove(i, 1);
-        //        Debug.Log("running");
-        //        transX.text = x;
-        //    }
-        //}
 
     }
 

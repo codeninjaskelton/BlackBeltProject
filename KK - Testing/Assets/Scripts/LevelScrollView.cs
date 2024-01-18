@@ -15,11 +15,8 @@ public class LevelScrollView : MonoBehaviour
     public DirectoryInfo d;
     public static string levelLoadName;
 
-    //public Text p;
-
     private void Start()
     {
-        //p.text = Application.persistentDataPath;
         if (Directory.Exists(Application.persistentDataPath + "/LevelData/"))
         {
             levelData = Application.persistentDataPath + "/LevelData/";
@@ -38,14 +35,7 @@ public class LevelScrollView : MonoBehaviour
                 GameObject Child0 = newLevelName.transform.GetChild(0).gameObject;
                 Child0.GetComponent<Text>().text = nameOnly;
                 newLevelName.name = nameOnly;
-                //if ()
-                //{
-                //    newLevelName.GetComponent<Text>().color = Color.green;
-                //}
-                //else
-                //{
-                //    newLevelName.GetComponent<Text>().color = Color.red;
-                //}
+                
 
             }
             

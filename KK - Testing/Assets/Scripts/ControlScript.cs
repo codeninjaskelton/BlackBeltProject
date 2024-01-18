@@ -37,7 +37,6 @@ public class ControlScript : MonoBehaviour
     public static KeyCode Hide = KeyCode.H;
     public GameObject hideJect;
 
-    // Start is called before the first frame update
     void Start()
     {
         Left = KeyCode.A;
@@ -48,7 +47,6 @@ public class ControlScript : MonoBehaviour
         Hide = KeyCode.H;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (boolean && Input.anyKeyDown)

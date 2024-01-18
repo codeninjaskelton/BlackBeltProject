@@ -42,7 +42,6 @@ public class LevelLoad : MonoBehaviour
     {
         Debug.Log("load");
         FindObjectOfType<Boundaries>().boundaryScale = level.boundarySize;
-        //List<GameObject> placed = new List<GameObject>();
         for (int i = 0; i < level.editorObjects.Count; i++)
         {
             GameObject pobject;
@@ -50,13 +49,11 @@ public class LevelLoad : MonoBehaviour
             {
                 case EditorObject.ObjectType.Block:
                     pobject = Instantiate(editorItems[0], level.editorObjects[i].pos, level.editorObjects[i].rot);
-                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Star:
                     pobject = Instantiate(editorItems[1], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     gameManager.GetComponent<Collectables>().collectables.Add(pobject);
                     Debug.Log("Star");
-                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Bean:
                 
@@ -70,7 +67,6 @@ public class LevelLoad : MonoBehaviour
                     {
                         enemy.GetComponent<RockNav>().player = pobject;
                     }
-                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Portal:
                     pobject = Instantiate(editorItems[3], level.editorObjects[i].pos, level.editorObjects[i].rot);
@@ -78,17 +74,14 @@ public class LevelLoad : MonoBehaviour
                     gameManager.GetComponent<Collectables>().portal = pobject;
                     pobject.GetComponent<Portal>().nextScene = "LStartScreen";
                     Debug.Log("portal");
-                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Wind:
                     pobject = Instantiate(editorItems[4], level.editorObjects[i].pos, level.editorObjects[i].rot);
-                    //placed.Add(pobject);
                     break;
                 case EditorObject.ObjectType.Enemy:
                     pobject = Instantiate(editorItems[5], level.editorObjects[i].pos, level.editorObjects[i].rot);
                     pobject.GetComponent<RockNav>().player = GameObject.FindGameObjectWithTag("Player");
                     pobject.GetComponent<RockNav>().rock = pobject.transform.GetChild(0).gameObject;
-                    //placed.Add(pobject);
                     break;
                 default:
                     break;

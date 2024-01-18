@@ -53,7 +53,7 @@ public class LevelComponents : MonoBehaviour
 
     private void Update()
     {
-        //timeSpeed = Time.timeScale;
+        
 
         for (var i = 0; i < levelComponents.Length; i++)
         {
@@ -98,10 +98,8 @@ public class LevelComponents : MonoBehaviour
     {
         if (timeSpeed > 0.1f)
         {
-            //float time = timeSpeed;
             timeSpeed -= 0.1f;
             timeSpeed = Mathf.Round(timeSpeed * 10) / 10;
-            //timeSpeed = time;
             ui.CallNewMessage(timeSpeed.ToString());
         }
 
@@ -111,10 +109,8 @@ public class LevelComponents : MonoBehaviour
     {
         if (timeSpeed < 1)
         {
-            //float time = timeSpeed;
             timeSpeed += 0.1f;
             timeSpeed = Mathf.Round(timeSpeed * 10) / 10;
-            // timeSpeed = time;
             ui.CallNewMessage(timeSpeed.ToString());
         }
         

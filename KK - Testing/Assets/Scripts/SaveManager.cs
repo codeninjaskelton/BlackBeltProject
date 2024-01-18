@@ -112,7 +112,6 @@ public class SaveManager : MonoBehaviour
             level = JsonUtility.FromJson<LevelEditor>(json);
             CreateFromFile();
         }
-        //else
     }
 
     void CreateFromFile()
