@@ -5,6 +5,7 @@ using System;
 
 public class EditorObject : MonoBehaviour
 {
+    //
     public enum ObjectType { Block, Star, Bean, Portal, Wind, Enemy };
 
     [Serializable]

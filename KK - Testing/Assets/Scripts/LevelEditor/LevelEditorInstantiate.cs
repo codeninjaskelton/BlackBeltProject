@@ -152,60 +152,58 @@ public class LevelEditorInstantiate : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (canPlace)
+            if (canPlace && followingMouse && isInBoundaries)
             {
-                if (followingMouse)
+                
+                if (levelEditorUI.BoundarySize.activeInHierarchy)
                 {
-                    if (isInBoundaries)
+                    levelEditorUI.CallNewMessage("Enter Boundary Size");
+                }
+                else
+                {
+                    Debug.Log("x% = " + Input.mousePosition.x / Screen.width);
+                    Debug.Log("y% = " + Input.mousePosition.y / Screen.height);
+
+                    if (placed.Count < blockLimit)
                     {
-                        if (levelEditorUI.BoundarySize.activeInHierarchy)
+                        switch (currentItem)
                         {
-                            levelEditorUI.CallNewMessage("Enter Boundary Size");
+                            case 2:
+                        if (GameObject.FindGameObjectWithTag("Player") == null)
+                        {
+                            placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
                         }
                         else
                         {
-                            Debug.Log("x% = " + Input.mousePosition.x / Screen.width);
-                            Debug.Log("y% = " + Input.mousePosition.y / Screen.height);
-
-                            if (placed.Count < blockLimit)
-                            {
-                                
-                                if (currentItem == 2)
-                                {
-                                    if (GameObject.FindGameObjectWithTag("Player") == null)
-                                    {
-                                        placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
-                                    }
-                                    else
-                                    {
-                                        levelEditorUI.CallNewMessage("Cannot Have More Than One Bean");
-                                    }
-                                }
-                                else if (currentItem == 3)
-                                {
-                                    if (GameObject.FindGameObjectWithTag("Portal") == null)
-                                    {
-                                        placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
-                                    }
-                                    else
-                                    {
-                                        levelEditorUI.CallNewMessage("Cannot Have More Than One Portal");
-                                    }
-                                }
-                                else
-                                {
-                                    placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
-                                }
-                                
-                            }
-                            else
-                            {
-                                levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
-                            }
+                            levelEditorUI.CallNewMessage("Cannot Have More Than One Bean");
                         }
+                        break;
+
+                            case 3:
+                        if (GameObject.FindGameObjectWithTag("Portal") == null)
+                        {
+                            placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                        }
+                        else
+                        {
+                            levelEditorUI.CallNewMessage("Cannot Have More Than One Portal");
+                        }
+                        break;
+
+                            default:
+                        placed.Add(Instantiate(editorItems[currentItem], new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0), Quaternion.Euler(0, 0, itemRotation), itemParent.transform));
+                        break;
+                        }
+
                         
+                                
+                    }
+                    else
+                    {
+                        levelEditorUI.CallNewMessage("Cannot Place Anymore Blocks");
                     }
                 }
+                        
 
                 
 

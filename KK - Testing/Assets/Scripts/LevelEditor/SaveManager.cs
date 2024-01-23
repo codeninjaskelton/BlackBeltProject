@@ -55,7 +55,7 @@ public class SaveManager : MonoBehaviour
         }
 
         level.boundarySize = FindObjectOfType<Boundaries>().boundaryScale;
-
+        level.levelName = levelNameSave.text;
         string json = JsonUtility.ToJson(level);
         string folder = Application.persistentDataPath + "/LevelData";
         string levelFile = "";
@@ -67,6 +67,7 @@ public class SaveManager : MonoBehaviour
         else
         {
             levelFile = levelNameSave.text + ".json";
+
         }
 
         if (!Directory.Exists(folder))

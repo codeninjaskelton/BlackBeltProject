@@ -24,11 +24,11 @@ public class LevelScrollView : MonoBehaviour
 
             foreach (var file in d.GetFiles("*.json"))
             {
-                Debug.Log("json " + file.FullName);
-                levelData = levelData.Replace("/", "\\");
-                string nameOnly = file.ToString();
-                nameOnly = nameOnly.Replace(levelData, "");
-                nameOnly = nameOnly.Replace(".json", "");
+                string json = File.ReadAllText(file.ToString());
+                LevelEditor level = JsonUtility.FromJson<LevelEditor>(json);
+
+                Debug.Log(json);
+                string nameOnly = level.levelName;
                 allLevels.Add(nameOnly);
                 GameObject newLevelName = Instantiate(levelNameButton, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0), content.transform);
                 newLevelName.SetActive(true);
