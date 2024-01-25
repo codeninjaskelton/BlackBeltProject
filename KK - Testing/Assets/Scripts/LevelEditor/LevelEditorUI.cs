@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controls the UI of the Level Editor
+/// </summary>
 public class LevelEditorUI : MonoBehaviour
 {
     public Text blockLimitText;

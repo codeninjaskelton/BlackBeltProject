@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+/// <summary>
+/// Load user made levels
+/// </summary>
 public class LevelLoad : MonoBehaviour
 {
     private LevelEditor level;

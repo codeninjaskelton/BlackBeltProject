@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the particles of the bean
+/// </summary>
 public class Particles : MonoBehaviour
 {
     private ParticleSystem bounce;

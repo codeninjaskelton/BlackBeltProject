@@ -6,6 +6,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Scroll through user made levels
+/// </summary>
 public class LevelScrollView : MonoBehaviour
 {
     public List<string> allLevels = new List<string>();

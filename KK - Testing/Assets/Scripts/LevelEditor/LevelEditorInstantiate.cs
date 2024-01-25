@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Instantiate objects in the Level Editor
+/// </summary>
 public class LevelEditorInstantiate : MonoBehaviour
 {
     public GameObject[] editorItems;
