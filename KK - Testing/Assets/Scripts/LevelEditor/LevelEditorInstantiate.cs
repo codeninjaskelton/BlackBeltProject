@@ -221,10 +221,6 @@ public class LevelEditorInstantiate : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 
-                posX.DeactivateInputField();
-                posY.DeactivateInputField();
-                rotZ.DeactivateInputField();
-                
                 if (placed.Count < blockLimit)
                 {
 
@@ -272,17 +268,18 @@ public class LevelEditorInstantiate : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            if (followingMouse)
-            {
-                followingMouse = false;
-            }
-            else
-            {
-                followingMouse = true;
-            }
-        }
+        //Messes with level editor object transformations
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    if (followingMouse)
+        //    {
+        //        followingMouse = false;
+        //    }
+        //    else
+        //    {
+        //        followingMouse = true;
+        //    }
+        //}
 
         
 

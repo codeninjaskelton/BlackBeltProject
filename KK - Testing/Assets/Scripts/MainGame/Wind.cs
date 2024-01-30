@@ -18,7 +18,7 @@ public class Wind : MonoBehaviour
         bottom = gameObject.transform.GetChild(2).gameObject;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         var sh = transform.GetChild(0).GetComponent<ParticleSystem>().shape;
         var em = transform.GetChild(0).GetComponent<ParticleSystem>().emission;
@@ -33,7 +33,7 @@ public class Wind : MonoBehaviour
         {
             if (isColliding)
             {
-                player.GetComponent<Rigidbody>().AddForce(dif * forceApplied);
+                player.GetComponent<Rigidbody>().AddForce(dif * forceApplied * 10);
             }
         }
         

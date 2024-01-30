@@ -19,7 +19,7 @@ public class RockNav : MonoBehaviour
         rock = transform.GetChild(0).gameObject;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float number = transform.GetChild(1).transform.localScale.x;
         time += translateSpeed / 1000;

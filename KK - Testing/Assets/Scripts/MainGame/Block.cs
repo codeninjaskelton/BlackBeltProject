@@ -24,15 +24,15 @@ public class Block : MonoBehaviour
         translateEnd = translateStart + translateEnd;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         
         if (Pause.isPaused == false)
         {
-            gameObject.transform.Rotate(new Vector3(rotateX / 100, rotateY / 100, rotateZ / 100));
+            gameObject.transform.Rotate(new Vector3(rotateX / 100, rotateY / 100, rotateZ / 100)*3);
             if (moveInSeconds == true)
             {
-                time += Time.deltaTime;
+                time += Time.fixedDeltaTime;
             }
             else if (moveInSeconds == false)
             {

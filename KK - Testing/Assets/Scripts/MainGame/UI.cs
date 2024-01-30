@@ -210,7 +210,7 @@ public class UI : MonoBehaviour
         bool check = true;
         while (check)
         {
-            alpha -= 0.001f;
+            alpha -= 0.01f;
             rockImage.material.color = new Color(1, 1, 1, alpha);
             yield return new WaitForEndOfFrame();
             if (alpha < 0)
