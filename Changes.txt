@@ -1,0 +1,16 @@
+Changes
+
+(Not in order)
+
+1. Added level editor
+	a. level loader
+
+2. Tutorial
+
+3. Added new level
+
+4. Added credits
+
+5. Added objective arrow
+
+6. Fixed slow bean
