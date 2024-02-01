@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     {
         particles = gameObject.GetComponent<Particles>();
 
-        Application.targetFrameRate = 120;
+        //Application.targetFrameRate = 120;
     }
 
     void FixedUpdate()
